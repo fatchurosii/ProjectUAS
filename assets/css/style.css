@@ -1,0 +1,95 @@
+.ml-auto     {
+    left: auto !important;
+    right: 0px;
+  }
+body{
+    font-family: 'Lato';
+}
+
+/* Navbar */
+.nav-link {
+    font-size: 14px;
+    color: #000 !important;
+}
+.nav-link:hover{
+    color:#0085FF !important;
+}
+.nav-item{}
+
+.navbar{
+   
+    background-color: #fff !important;
+}
+
+/* Navbar */
+
+/* Text Banner */
+
+.text-banner{
+    position: relative;
+    float: left;
+    text-align: center;
+    width: 460px;
+    height: 60px;
+    margin-top: 120px;
+    color: #0085FF !important;
+  
+}
+.text1{
+    font-size: 45px;
+    font-weight: bold;
+}
+.text2{
+    font-size: 30px;
+    font-weight: bold;
+}
+.text3{
+    font-size: 22px;
+    margin-top: 80px;
+}
+.custom-rounded{
+    margin-top: 15px;
+    margin-left: 60px;
+    float: left;
+    border-radius: 25px;
+    border-color: #0085FF !important;
+    background-color: #0085FF;
+    
+}
+.img-banner{
+    position: relative;
+    float: right;
+    margin-top: 120px;
+}
+.img-banner img{
+    width: 400px;
+    height: 350px;
+    
+}
+/* Text Banner */
+
+/* SearchBox */
+.searchbox input{
+    text-align: left;
+    
+    margin: 50px;
+    width: 100%;
+    height: 50px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.searchbox button{
+    text-align: center;
+
+    margin: 50px;
+    width: 75px;
+    height: 50px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+/* SearchBox */
+
+
+.clear{
+    clear: both;
+}
