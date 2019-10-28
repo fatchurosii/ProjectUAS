@@ -13,7 +13,6 @@
         <!-- Script JS Font Awesome -->
         <script src="https://kit.fontawesome.com/941f29cdd8.js" crossorigin="anonymous"></script>
   </head>
-    </head>
         <body>
 
             <div class="container-fluid shadow-sm bg-white">
