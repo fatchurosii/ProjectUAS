@@ -1,0 +1,26 @@
+
+.container{
+
+    width: 300px !important;
+    margin-top: 9%;
+    padding:50px;
+    box-shadow: 3px 3px 20px #8484;
+}
+.container h2{
+    text-align: center;
+    color: #0085FF;
+    text-shadow: 1px 4px 3px #8484;
+    
+}
+.container .form-group .form-control{ 
+    border-radius: 50px;
+}
+.btn{
+    width: 270px;
+    border-radius:50px !important;
+}
+a.text{
+    font-size: 10px;
+
+
+}
