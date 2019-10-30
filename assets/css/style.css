@@ -2,7 +2,7 @@
     left: auto !important;
     right: 0px;
   }
-body{
+html{
     font-family: 'Lato';
 }
 
@@ -14,8 +14,8 @@ body{
 .nav-link:hover{
     color:#0085FF !important;
 }
-.nav-item{
-    
+.roundeds{
+    border-radius: 25px !important;
 }
 
 .navbar{

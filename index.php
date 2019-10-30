@@ -42,10 +42,10 @@
                                 <a class="nav-link" href="#" >Cari Kerja</a>
                             </li>
                             <li class="nav-item">
-                                <button class="btn btn-primary rounded">Login</button>
+                                <button class="btn btn-primary btn-sm roundeds mr-2">Login</button>
                             </li>
                             <li class="nav-item">
-                                <button class="btn btn-primary rounded ">Register</button>
+                                <button class="btn btn-primary btn-sm roundeds mr-2 ">Register</button>
                             </li>
 
                         </ul>
@@ -62,18 +62,23 @@
 
             <div class="container">
                 <div class="row">
-                <div class="col md-12">
-                <div class="text-banner">
-                    <h1 class="text1"> Cari Lowongan Kerja </h1>
-                    <h1 class="text2"> Terlengkap dan Termudah </h1>
-                    
-                    <h2 class="text3"> Pasang Lowongan Sekarang Gratis </h2>
-                    
-                    <a class="btn btn-primary btn-lg custom-rounded text-white">Pasang Iklan</a>
-                    
-                </div>
-                <div class="img-banner">
-                    <img class="" src="assets/img/logo.jpeg">   
+                    <div class="col-md-8 col-sm-12">
+                        <div class="text-banner">
+                            <h1 class="text1"> Cari Lowongan Kerja </h1>
+                            <h1 class="text2"> Terlengkap dan Termudah </h1>
+                            
+                            <h2 class="text3"> Pasang Lowongan Sekarang Gratis </h2>
+                            
+                            <a class="btn btn-primary btn-lg custom-rounded text-white">Pasang Iklan</a>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-4 col-sm-12">
+                        <div class="img-banner">
+                            <img class="" src="assets/img/logo.jpeg">   
+                        </div>
+                    </div>
+                
                 </div>
 
                 <div class="clear"> </div>
@@ -103,8 +108,7 @@
                     </form>
                 </div>
                 
-                </div>
-                </div>
+                
             </div>
 
         </body>
