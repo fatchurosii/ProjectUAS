@@ -41,6 +41,12 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#" >Cari Kerja</a>
                             </li>
+                            <li class="nav-item">
+                                <button class="btn btn-primary rounded">Login</button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="btn btn-primary rounded ">Register</button>
+                            </li>
 
                         </ul>
                         
@@ -55,6 +61,8 @@
             </div>
 
             <div class="container">
+                <div class="row">
+                <div class="col md-12">
                 <div class="text-banner">
                     <h1 class="text1"> Cari Lowongan Kerja </h1>
                     <h1 class="text2"> Terlengkap dan Termudah </h1>
@@ -95,6 +103,8 @@
                     </form>
                 </div>
                 
+                </div>
+                </div>
             </div>
 
         </body>

@@ -14,12 +14,15 @@ body{
 .nav-link:hover{
     color:#0085FF !important;
 }
-.nav-item{}
+.nav-item{
+    
+}
 
 .navbar{
    
     background-color: #fff !important;
 }
+
 
 /* Navbar */
 
