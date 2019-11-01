@@ -22,7 +22,7 @@ Job Seeker is Web based Application to find jobs and find employee , we still de
     - [ ] Employee Page
     - [ ] Job Listing
     - [ ] Job Detail Page
-    - [ ] Profile edit page
+    - [x] Profile edit page
     - [ ] Candidate list page
     - [ ] etc...
   
