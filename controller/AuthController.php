@@ -1,5 +1,5 @@
 <?php
-    class authController{
+    class AuthController{
         private $db; //Menyimpan isi koneksi database
         private $error_msg;
 

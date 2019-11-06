@@ -9,8 +9,8 @@
          echo $e->getMessage(); 
     } 
 
-    include_once 'authController.php'; 
+    include_once 'AuthController.php'; 
 
-    $user = new Auth($con); 
+    $user = new AuthController($con); 
 
 ?>
