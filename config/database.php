@@ -4,7 +4,7 @@
         var $host = "localhost";
         var $username = "root";
         var $pass = "";
-        var $db = "jobseeke";
+        var $db = "jobseeker";
     }
 
     function __construct() {

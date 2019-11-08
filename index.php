@@ -10,6 +10,7 @@
         <!-- CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/css/style.css"/>
+        <link rel="stylesheet" href="assets/css/login.css">
         <!-- Script JS Font Awesome -->
         <script src="https://kit.fontawesome.com/941f29cdd8.js" crossorigin="anonymous"></script>
   </head>
@@ -42,7 +43,7 @@
                                 <a class="nav-link" href="#" >Cari Kerja</a>
                             </li>
                             <li class="nav-item">
-                                <button class="btn btn-primary btn-sm roundeds mr-2">Login</button>
+                                <button class="btn btn-primary btn-sm roundeds mr-2" data-toggle="modal" data-target="#modalLoginForm">Login</button>
                             </li>
                             <li class="nav-item">
                                 <button class="btn btn-primary btn-sm roundeds mr-2 ">Register</button>
@@ -59,7 +60,45 @@
                     </div>
                 </nav>
             </div>
+                    <!-- Modal Login -->
+                <div class="modal fade" id="modalLoginForm" role="dialog" aria-labelledby="myModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body mx-3">
+                        <div class="container border">
+                                <div class="row">
+                                <div class="col md-12 ">
+                                    <form>
+                                        <h2 class="text-top">WELCOME</h2>
+                                        <div class="form-group">
+                                        <input type="email" name="" class="form-control" placeholder="Masukkan Email Anda">
+                                        </div>
+                                        <div class="form-group">
+                                        
+                                        <input type="password" name="" class="form-control"placeholder="Masukkan Password Anda">
+                                        </div>
+                                        <button type="submit "class="btn btn-primary">Login</button>
+                                        <a class="text "href="">Forgot Password?</a>
+                                        <br>
+                                        <a class="text"href="">Dont Have Any Account ? Sign Up Now!</a>
+                                    </form>
+                                </div>
+                                </div>
+                            
+                         </div>
+      
+                        </div>
+                       
+                        </div>
+                    </div>
+                    
 
+                    <!-- End Modal Login -->
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-sm-12">
