@@ -1,16 +1,22 @@
-<?php
-    try{ 
+<?php 
+class dbConfig{
 
-         $con = new PDO('mysql:host=localhost;dbname=jobseeker', 'root', 'toor', array(PDO::ATTR_PERSISTENT => true)); 
-    } 
+	var $host = "localhost";
+	var $username = "root";
+	var $password = "toor";
+	var $database = "jobseeker";
+     var $koneksi = ""; //Untuk menampung koneksi
+     
+	function __construct(){
 
-    catch(PDOException $e){ 
+          $this->koneksi = mysqli_connect($this->host, $this->username, $this->password,$this->database);
 
-         echo $e->getMessage(); 
-    } 
+          if (mysqli_connect_errno()){
+			echo "Koneksi database gagal : " . mysqli_connect_error();
+		}
+     }
+     
 
-    include_once 'AuthController.php'; 
-
-    $user = new AuthController($con); 
-
+	
+}
 ?>

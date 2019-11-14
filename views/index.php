@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -118,29 +119,29 @@
                     <!--Body-->
                     <div class="modal-body mx-4">
                         <!--Body-->
-                        <form>
+                        <form action='/register' method="post">
 
                         <div class="form-group">
                             <label for="user">Username</label>
-                        <input type="text" name="" class="form-control" placeholder="Masukkan Nama Anda">
+                        <input type="text" name="username" class="form-control" placeholder="Masukkan Username Anda" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                        <input type="email" name="" class="form-control" placeholder="Masukkan Email Anda">
+                        <input type="email" name="email" class="form-control" placeholder="Masukkan Email Anda" required>
                         </div>
                         <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" name="" class="form-control"placeholder="Masukkan Password Anda">
+                        <input type="password" name="password" class="form-control" placeholder="Masukkan Password Anda" required>
                         </div>
-                        
-                    </form>
-                    </div>
+                        </div>
                     <!--Footer-->
                     <div class="text-center mb-3">
-                    <button type="submit "class="btn btn-primary round mb-3">Login</button>
+                        <button type="submit "class="btn btn-primary round mb-3">Register</button>
                     <br>
                     <a class="text"href="">Already have Account ? Sign In Now!</a>
-                    </div>
+                    </div>    
+                    </form>
+                    
                     </div>
                     <!--/.Content-->
                 </div>
