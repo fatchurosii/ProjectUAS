@@ -75,21 +75,21 @@
                     <!--Body-->
                     <div class="modal-body mx-4">
                         <!--Body-->
-                        <form>
+                        <form action="/login" method="post">
                         <div class="form-group">
                             <label for="email">Email</label>
-                        <input type="email" name="" class="form-control" placeholder="Masukkan Email Anda">
+                        <input type="email" name="email" class="form-control" placeholder="Masukkan Email Anda">
                         </div>
                         <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" name="" class="form-control"placeholder="Masukkan Password Anda">
+                        <input type="password" name="password" class="form-control"placeholder="Masukkan Password Anda">
                         </div>
-                        
+                     <div class="text-center mb-3">
+                    <button type="submit" class="btn btn-primary round mb-3">Login</button>
                     </form>
                     </div>
                     <!--Footer-->
-                    <div class="text-center mb-3">
-                    <button type="submit "class="btn btn-primary round mb-3">Login</button>
+                 
                     <br>
                     <a class="text"href="">Dont Have Any Account ? Sign Up Now!</a>
                     <br>

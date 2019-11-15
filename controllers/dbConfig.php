@@ -3,7 +3,7 @@ class dbConfig{
 
 	var $host = "localhost";
 	var $username = "root";
-	var $password = "toor";
+	var $password = "3limin@teD";
 	var $database = "jobseeker";
      var $koneksi = ""; //Untuk menampung koneksi
      

@@ -4,9 +4,10 @@
     
     class AuthControllers{
         public $db;
+        public $auth;
 
         public function __construct(){
-            $this->db = new dbConfig();            
+            $this->db = new dbConfig();          
             // extract($_REQUEST);
             // echo 'Die Dump';
             // echo '<br>';
@@ -19,10 +20,10 @@
             // echo $password = md5($password);
             
             $condition = $_GET['act'];
-            echo $condition;
-            echo $_POST['username'];
-            echo $_POST['email'];
-            echo $_POST['password'];
+            // echo $condition;
+            // echo $_POST['username'];
+            // echo $_POST['email'];
+            // echo $_POST['password'];
         }   
 
         function register($username,$email,$password){
@@ -50,6 +51,36 @@
                 return false;
             }
         }
+        public function login($email, $password){
+             
+            
+                        $query="SELECT * from tbAuth t WHERE t.email=$email and t.password=$password";
+                        $result = mysqli_query($this->db,$query);
+                        $user_data = mysqli_fetch_array($result);          
+                        $count_row = $result->num_rows;
+            
+             
+            
+                        if ($count_row == 1) {
+            
+                            // this login var will use for the session thing
+            
+                            $_SESSION['login'] = true;
+            
+                            $_SESSION['id'] = $user_data['id'];
+            
+                            return true;
+            
+                        }
+            
+                        else{
+            
+                            return false;
+            
+                        }
+           
+                    }
+
         
     }    
 ?>
