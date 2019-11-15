@@ -119,7 +119,7 @@
                     <!--Body-->
                     <div class="modal-body mx-4">
                         <!--Body-->
-                        <form action='/register' method="post">
+                        <form action='/register?act=register' method="post">
 
                         <div class="form-group">
                             <label for="user">Username</label>
@@ -136,7 +136,7 @@
                         </div>
                     <!--Footer-->
                     <div class="text-center mb-3">
-                        <button type="submit "class="btn btn-primary round mb-3">Register</button>
+                        <input type="submit" name="submit" value="Register" class="btn btn-primary round mb-3"/>
                     <br>
                     <a class="text"href="">Already have Account ? Sign In Now!</a>
                     </div>    

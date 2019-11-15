@@ -24,14 +24,27 @@ switch ($request) {
         require __DIR__ . '/views/employeer/index.php';
         break;
         // CONTROLLER LOGIC
-    case '/register':
-        // require __DIR__ . '/controllers/AuthControllers.php';
-        extract($_REQUEST);
-
+    case '/register?act=register':
+        // require __DIR__ . '/controllers/AuthControllers.php';        
         include './controllers/AuthControllers.php';
         $auth = new AuthControllers();
+
+
+        $condition = $_GET['act'];
         
-        $auth->register($username,$email,$password);
+        if ($condition == 'register'){            
+            $register = $auth->register($_POST['username'],$_POST['email'],$_POST['password']);
+            // header("location:/");
+            if ($register) {
+                 // Registration Success
+                 echo 'Registration successful <a href="/">Click here</a> to login';
+                 } else {
+                 // Registration Failed
+                 echo 'Registration failed. Email or Username already exits please try again';
+                 }
+                
+        }
+        
 
 
         break;
