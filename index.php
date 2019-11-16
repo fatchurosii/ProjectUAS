@@ -37,12 +37,24 @@ switch ($request) {
         if ($condition == 'register'){            
             $register = $auth->register($_POST['username'],$_POST['email'],$_POST['password']);
             // header("location:/");
-            if ($register) {
+                if ($register) {
                  // Registration Success
-                 echo 'Registration successful <a href="/">Click here</a> to login';
-                 } else {
-                 // Registration Failed
-                 echo 'Registration failed. Email or Username already exits please try again';
+                                
+                    echo '<script type="text/javascript">'; 
+                    echo 'alert("Berhasil mendaftar !");'; 
+                    echo 'window.location.href = "/";';
+                    echo '</script>';
+
+                
+                } else {
+                
+                    echo '<script type="text/javascript">'; 
+                    echo 'alert("Email atau Username telah terdaftar !");'; 
+                    echo 'window.location.href = "/";';
+                    echo '</script>';
+                
+               
+
                  }
                 
          }
