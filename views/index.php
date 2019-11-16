@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
     <head>
@@ -11,9 +10,48 @@
         <!-- CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="../assets/css/style.css"/>
-      
+
+
+
         <!-- Script JS Font Awesome -->
         <script src="https://kit.fontawesome.com/941f29cdd8.js" crossorigin="anonymous"></script>
+
+        <!-- Sweet Alert 2
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.3.11/dist/sweetalert2.min.css"/>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.3.11/dist/sweetalert2.min.js"></script>
+         -->
+
+         <!-- TODO: INSTALL SWEETALERT -->
+
+        <!-- <script>
+            Swal.fire({
+                title: 'Error!',
+                text: 'Do you want to continue',
+                icon: 'error',
+                confirmButtonText: 'Cool'
+            })
+
+            document.querySelector(".login").addEventListener("click", function() {
+                swal({
+                    title: "Are you sure about deleting this file?",
+                    type: "info",
+                    showCancelButton: true,
+                    confirmButtonText: "Delete It",
+                    confirmButtonColor: "#ff0055",
+                    cancelButtonColor: "#999999",
+                    reverseButtons: true,
+                    focusConfirm: false,
+                    focusCancel: true
+                });
+            }); 
+// swal.fire({
+//   icon: 'error',
+//   title: 'Oops...',
+//   text: 'Something went wrong!',
+//   footer: '<a href>Why do I have this issue?</a>'
+// })
+        </script> -->
   </head>
         <body>
 
@@ -89,7 +127,7 @@
                     </div>
                     <!--Footer-->
                     <div class="text-center mb-3">
-                    <button type="submit "class="btn btn-primary round mb-3">Login</button>
+                    <button type="submit "class="login btn btn-primary round mb-3">Login</button>
                     <br>
                     <a class="text"href="">Dont Have Any Account ? Sign Up Now!</a>
                     <br>

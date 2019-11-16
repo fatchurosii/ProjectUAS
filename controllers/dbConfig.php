@@ -1,22 +1,8 @@
 <?php 
-class dbConfig{
 
-	var $host = "localhost";
-	var $username = "root";
-	var $password = "toor";
-	var $database = "jobseeker";
-     var $koneksi = ""; //Untuk menampung koneksi
-     
-	function __construct(){
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', 'toor');
+define('DB_DATABASE', 'jobseeker');
 
-          $this->koneksi = mysqli_connect($this->host, $this->username, $this->password,$this->database);
-
-          if (mysqli_connect_errno()){
-			echo "Koneksi database gagal : " . mysqli_connect_error();
-		}
-     }
-     
-
-	
-}
 ?>
