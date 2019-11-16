@@ -4,7 +4,7 @@
     
     class AuthControllers{
         public $db;
-        public $auth;
+
 
         public function __construct(){
             $this->db = new dbConfig();          
