@@ -8,6 +8,7 @@
         public function __construct(){
             $this->db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
+
         }   
 
         function register($username,$email,$password){
@@ -40,6 +41,27 @@
                 return false;
             }
         }
+        public function login ($email, $password){
+ 
+        	$password = md5($password);
+			$query="SELECT * from `tbAuth` WHERE `email`='$email' and `password` ='$password'";
+ 
+			//checking if the username is available in the table
+        	$result = mysqli_query($this->db,$query);
+        	$user_data = mysqli_fetch_array($result);
+        	$count_row = $result->num_rows;
+ 
+	        if ($count_row == 1) {
+	            // this login var will use for the session thing
+	            $_SESSION['/login'] = true;
+	            // $_SESSION['id'] = $user_data['id'];
+	            return true;
+	        }
+	        else{
+			    return false;
+			}
+    	}
+
         
     }    
 ?>

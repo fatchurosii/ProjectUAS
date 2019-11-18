@@ -60,6 +60,29 @@ switch ($request) {
 
 
         break;
+        case '/login':
+        include './controllers/AuthControllers.php';
+        $auth = new AuthControllers();
+        if (isset($_REQUEST['submit'])) {
+            extract($_REQUEST);
+            $login = $auth->login($email, $password);
+            if ($login) {
+                // Registration Success
+                echo '<script type="text/javascript">'; 
+                    echo 'alert("Login Success !");'; 
+                    echo 'window.location.href = "/";';
+                    echo '</script>';
+
+            } else {
+                // Registration Failed
+                echo '<script type="text/javascript">'; 
+                    echo 'alert("Email/Password tidak terdaftar !");'; 
+                    echo 'window.location.href = "/";';
+                    echo '</script>';
+
+            }
+        }
+
     default:
         require __DIR__ . '/views/404.php';
         break;
