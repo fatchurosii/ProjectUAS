@@ -60,8 +60,18 @@
 	        else{
 			    return false;
 			}
-    	}
+        }
+        public function get_session(){
+            
+             return $_SESSION['login'];
+            
+                }
+                    public function user_logout() {
+            
+                        $_SESSION['login'] = FALSE;
+            
+                        session_destroy();
 
-        
+                    }
     }    
 ?>
