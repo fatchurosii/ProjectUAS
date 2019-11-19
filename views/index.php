@@ -73,6 +73,9 @@
             </div>
         </nav>
     </div>
+
+
+
     <!-- Modal Login -->
     <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -88,7 +91,7 @@
                 <!--Body-->
                 <div class="modal-body mx-4">
                     <!--Body-->
-<<<<<<< HEAD
+
                     <form action='/login' method="post">
                         <div class="form-group">
                             <label for="email">Email</label>
@@ -103,41 +106,13 @@
                         </div>
 
                     </form>
-=======
-                    <div class="modal-body mx-4">
-                        <!--Body-->
-                        <form action="/login" method="post">
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                        <input type="email" name="email" class="form-control" placeholder="Masukkan Email Anda">
-                        </div>
-                        <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control"placeholder="Masukkan Password Anda">
-                        </div>
-                     <div class="text-center mb-3">
-                    <button type="submit" class="btn btn-primary round mb-3">Login</button>
-                    </form>
-                    </div>
-                    <!--Footer-->
-<<<<<<< HEAD
-                 
-=======
-                    <div class="text-center mb-3">
-                    <button type="submit "class="login btn btn-primary round mb-3">Login</button>
->>>>>>> 987252d0e1b635fa7a53d7eb0d2e6b64a2a10cb1
-                    <br>
-                    <a class="text"href="">Dont Have Any Account ? Sign Up Now!</a>
-                    <br>
-                    <a class="text "href="">Forgot Password?</a>
-                    </div>
-                    </div>
-                    <!--/.Content-->
->>>>>>> e3da220f6f1c9a341f317ce187f67d8ae4e6cbde
+
+                   
+                    
                 </div>
                 <!--Footer-->
                 <div class="text-center mb-3">
-                    <a class="text" href="">Dont Have Any Account ? Sign Up Now!</a>
+                    <a class="text" onclick="$('#modalLogin').modal('hide')" data-toggle="modal" data-target="#modalReg" href="#">Dont Have Any Account ? Sign Up Now!</a>
                     <br>
                     <a class="text " href="">Forgot Password?</a>
                 </div>
@@ -147,6 +122,11 @@
     </div>
     <!-- Modal -->
 
+
+
+
+
+    
     <!-- End Modal Login -->
 
     <!-- ModalReg -->
@@ -183,7 +163,7 @@
                 <div class="text-center mb-3">
                     <input type="submit" name="submit" value="Register" class="btn btn-primary round mb-3" />
                     <br>
-                    <a class="text" href="">Already have Account ? Sign In Now!</a>
+                    <a class="text" onclick="$('#modalReg').modal('hide')" data-toggle="modal" data-target="#modalLogin" href="#">Already have Account ? Sign In Now!</a>
                 </div>
                 </form>
 
