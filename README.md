@@ -18,17 +18,17 @@ Job Seeker is Web based Application to find jobs and find employee , we still de
 
 - Todo
   - UI/UX
-    - [x] Index Page
-    - [ ] Employee Page
-    - [ ] Job Listing
+    - [x] Index Page **Responsive**
+    - [x] Employee Page
+    - [x] Job Listing
     - [ ] Job Detail Page
     - [x] Profile edit page
     - [ ] Candidate list page
     - [ ] etc...
   
   - Back End
-    - [ ] Login 
-    - [ ] Register
+    - [x] Login 
+    - [x] Register
     - [ ] Post Job
     - [ ] Search Job
     - [ ] Update Job
