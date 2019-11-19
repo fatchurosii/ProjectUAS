@@ -25,34 +25,7 @@
 
     <!-- TODO: INSTALL SWEETALERT -->
 
-    <!-- <script>
-            Swal.fire({
-                title: 'Error!',
-                text: 'Do you want to continue',
-                icon: 'error',
-                confirmButtonText: 'Cool'
-            })
-
-            document.querySelector(".login").addEventListener("click", function() {
-                swal({
-                    title: "Are you sure about deleting this file?",
-                    type: "info",
-                    showCancelButton: true,
-                    confirmButtonText: "Delete It",
-                    confirmButtonColor: "#ff0055",
-                    cancelButtonColor: "#999999",
-                    reverseButtons: true,
-                    focusConfirm: false,
-                    focusCancel: true
-                });
-            }); 
-// swal.fire({
-//   icon: 'error',
-//   title: 'Oops...',
-//   text: 'Something went wrong!',
-//   footer: '<a href>Why do I have this issue?</a>'
-// })
-        </script> -->
+  
 </head>
 
 <body>

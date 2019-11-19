@@ -9,7 +9,7 @@
 
 $request = $_SERVER['REQUEST_URI'];
 
-var_dump($request);
+
 
 switch ($request) {
     case '/' :
