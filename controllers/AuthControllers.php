@@ -19,7 +19,8 @@
             $password = $_POST['password'];
 
             
-            $password = md5($password);        
+            $password = md5($password);  
+                  
 			$query="SELECT * FROM tbAuth WHERE username='$username' OR email='$email'";
            
 			//Cek username
