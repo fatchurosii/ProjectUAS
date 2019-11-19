@@ -2,11 +2,14 @@
     // include 'controllers/Route.php';
   
     include('controllers/dbConfig.php');
+    include('controllers/AuthControllers.php');
     // $db = new dbConfig(); //Buka koneksi database
 
     
 
 $request = $_SERVER['REQUEST_URI'];
+
+var_dump($request);
 
 switch ($request) {
     case '/' :
@@ -25,8 +28,7 @@ switch ($request) {
         break;
         // CONTROLLER LOGIC
     case '/register?act=register':
-        // require __DIR__ . '/controllers/AuthControllers.php';        
-        include './controllers/AuthControllers.php';
+        // require __DIR__ . '/controllers/AuthControllers.php'; 
         $auth = new AuthControllers();
 
 
@@ -55,34 +57,23 @@ switch ($request) {
 
                  }
                 
-        }
-        
-
-
+         }
         break;
-        case '/login':
-        include './controllers/AuthControllers.php';
-        $auth = new AuthControllers();
-        if (isset($_REQUEST['submit'])) {
-            extract($_REQUEST);
-            $login = $auth->login($email, $password);
+    case '/login':
+         $auth = new AuthControllers();
+         $email= $_POST['email'];
+         $password= $_POST['password'];
+         $login = $auth->login($email, $password);
             if ($login) {
                 // Registration Success
-                echo '<script type="text/javascript">'; 
-                    echo 'alert("Login Success !");'; 
-                    echo 'window.location.href = "/";';
-                    echo '</script>';
-
+            echo 'loginsucces';
             } else {
                 // Registration Failed
-                echo '<script type="text/javascript">'; 
-                    echo 'alert("Email/Password tidak terdaftar !");'; 
-                    echo 'window.location.href = "/";';
-                    echo '</script>';
-
+                echo 'Wrong username or password';
             }
-        }
-
+    break;
+         
+       
     default:
         require __DIR__ . '/views/404.php';
         break;

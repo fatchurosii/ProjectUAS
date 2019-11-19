@@ -8,7 +8,6 @@
         public function __construct(){
             $this->db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
-
         }   
 
         function register($username,$email,$password){
