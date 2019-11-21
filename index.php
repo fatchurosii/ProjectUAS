@@ -35,7 +35,7 @@ switch ($request) {
         $condition = $_GET['act'];
 
         if ($condition == 'register') {
-            $register = $auth->register($_POST['username'], $_POST['email'], $_POST['password']);
+            $register = $auth->register($_POST['username'], $_POST['email'], $_POST['password'], $_POST['roles']);
             // header("location:/");
             if ($register) {
                 // Registration Success
@@ -56,17 +56,19 @@ switch ($request) {
     case '/login':
         
         $auth = new AuthControllers();
+
         if (isset($_REQUEST['submit'])) {
             extract($_REQUEST);
             $login = $auth->login($email, $password);
             if ($login) {
-                // Registration Success
+                
+
                 echo '<script type="text/javascript">';
                 echo 'alert("Login Success !");';
                 echo 'window.location.href = "/";';
                 echo '</script>';
             } else {
-                // Registration Failed
+                
                 echo '<script type="text/javascript">';
                 echo 'alert("Email/Password tidak terdaftar !");';
                 echo 'window.location.href = "/";';
@@ -75,7 +77,12 @@ switch ($request) {
         }
 
         break;
+    
+    case '/logout':
+        $auth = new AuthControllers();
+        $auth->getLogout();
 
+        break;
 
     default:
         require __DIR__ . '/views/404.php';

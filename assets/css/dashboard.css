@@ -1,51 +1,10 @@
-.ml-auto     {
-    left: auto !important;
-    right: 0px;
-  }
-html{
-    font-family: 'Lato';
-}
-
-/* Navbar */
-.nav-link {
-    font-size: 14px;
-    color: #000 !important;
-}
-.nav-link:hover{
-    color:#0085FF !important;
-}
+/* MOBILE VIEW */
+    .dashboard-user{
+        width: 100%;
+    }
+/* MOBILE VIEW END */
 
 
-.navbar{
-   
-    background-color: #fff !important;
-}
+/* DESKTOP VIEW */
 
-
-/* Navbar */
-
-.Dashboard-user{
-    width: 200px;
-}
-
-.card-img-top{
-    margin-left: 50px;
-    margin-top:20px;
-    margin-bottom: -5px;
-    
-}
-.card{
-    background-color: #0085FF !important;
-}
-.card-title{
-    margin-bottom: -10px;
-}
-h2{
-    margin-bottom: 20px;
-}
-
-
-
-.clear{
-    clear: both;
-}
+/* DESKTOP VIEW END */

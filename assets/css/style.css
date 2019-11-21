@@ -1,6 +1,13 @@
-html{
-    font-family: 'Lato';
-}
+/* PROPERTIES UMUM */
+    html{
+        font-family: 'Lato';
+    }
+
+    .text-primary{
+        color:#0085FF !important;    
+    }
+
+/* PROPERTIES UMUM */
 
 /* Navbar */
 .nav-link {
@@ -92,7 +99,15 @@ html{
 
     /* Button Search */
 
-   
+    /* DASHBOARD CSS  */
+        .welcome{
+            font-size: 24px;
+            color: #0085FF !important;    
+            margin-bottom: 20px;
+            
+        }
+        
+    /* DASHBOARD CSS END */
 /* MOBILE VIEW END */
 
 
@@ -174,7 +189,7 @@ html{
 
     
 }
-
+/* DESKTOP VIEW END */
 
 /* Text Banner */
 
@@ -207,10 +222,10 @@ label{
 h3{
     font-size: 42px;
     margin-left: 33px;
-    font-family: Lato;
     color: #0085FF !important;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 /* form-login */
 
 /* Modal */

@@ -25,12 +25,16 @@
 
     <!-- TODO: INSTALL SWEETALERT -->
 
-  
+
 </head>
 
 <body>
 
     <div class="container-fluid shadow-sm bg-white">
+        <?php
+        session_start();                    
+        ?>
+
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="#">Navbar</a>
@@ -50,19 +54,50 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="/">Home </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/employeer">Employee Area</a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="/search">Cari Kerja</a>
                         </li>
+                        <?php
+                        if ($_SESSION['login'] == FALSE) {
+                            echo "
+                        <li class='nav-item'>
+                            <a class='nav-link' href='/employeer'>Employee Area</a>
+                        </li>
+                        <li class='nav-item'>
+                            <button class='btn btn-primary btn-sm roundeds mr-2 ml-md-4 mb-2' id='login' data-toggle='modal' data-target='#modalLogin'>Login</button>
+                        </li>
+                        <li class='nav-item'>
+                            <button class='btn btn-primary btn-sm roundeds mr-2 ' data-toggle='modal' data-target='#modalReg'>Register</button>
+                        </li>
+                        ";
+                        } else {
+                            echo "
+                            
+                        <li class='nav-item dropdown'>
+                            
+                            <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                            
+                            " . $_SESSION['username'];
 
-                        <li class="nav-item">
-                            <button class="btn btn-primary btn-sm roundeds mr-2 ml-md-4 mb-2" id="login" data-toggle="modal" data-target="#modalLogin">Login</button>
+                            echo "
+                            </a>
+
+                            <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                              <a class='dropdown-item text-primary' href='#'>Profile</a>
+                              <a class='dropdown-item text-primary' href='#'>Lamaran Kerja</a>
+                              <div class='dropdown-divider'></div>
+                              <a class='dropdown-item text-danger' href='logout'>Logout</a>
+                              
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <button class="btn btn-primary btn-sm roundeds mr-2 " data-toggle="modal" data-target="#modalReg">Register</button>
-                        </li>
+
+                                          
+                            ";
+                        }
+                        ?>
+
+
 
                     </ul>
 
@@ -107,8 +142,8 @@
 
                     </form>
 
-                   
-                    
+
+
                 </div>
                 <!--Footer-->
                 <div class="text-center mb-3">
@@ -126,7 +161,7 @@
 
 
 
-    
+
     <!-- End Modal Login -->
 
     <!-- ModalReg -->
@@ -157,6 +192,9 @@
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password" name="password" class="form-control" placeholder="Masukkan Password Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" name="roles" class="form-control" value="jobseeker">
                         </div>
                 </div>
                 <!--Footer-->

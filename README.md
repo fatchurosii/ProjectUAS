@@ -29,6 +29,8 @@ Job Seeker is Web based Application to find jobs and find employee , we still de
   - Back End
     - [x] Login 
     - [x] Register
+    - [ ] Sessions
+    - [ ] Multi roles
     - [ ] Post Job
     - [ ] Search Job
     - [ ] Update Job
