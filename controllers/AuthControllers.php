@@ -1,7 +1,4 @@
-<?php
-
-    include '../controllers/dbConfig.php';
-    
+<?php        
     class AuthControllers{
         public $db;
 
@@ -10,7 +7,7 @@
 
         }   
 
-        function register($username,$email,$password,$roles){
+        public function register($username,$email,$password,$roles){
             
             
             $username = $_POST['username'];

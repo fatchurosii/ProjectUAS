@@ -1,12 +1,13 @@
 <?php
-// include 'controllers/Route.php';
+// INI ADALAH FILE ROUTING UNTUK VIEW DAN CONTROLLERS
+
+//NOTE : CUKUP DEKLARASIKAN CLASS DISINI KARENA INI ADALAH ROUTER
 
 include('controllers/dbConfig.php');
 include('controllers/AuthControllers.php');
-// $db = new dbConfig(); //Buka koneksi database
+include('controllers/JobControllers.php');
 
-
-
+// Menyimpan request url
 $request = $_SERVER['REQUEST_URI'];
 
 
@@ -21,6 +22,7 @@ switch ($request) {
         require __DIR__ . '/views/user/index.php';
         break;
     case '/search':
+        $search = new JobControllers();
         require __DIR__ . '/views/user/search-job.php';
         break;
     case '/employeer':
