@@ -49,11 +49,11 @@ switch ($request) {
             } else {
 
                 echo '<script type="text/javascript">';
+            }
                 echo 'alert("Email atau Username telah terdaftar !");';
                 echo 'window.location.href = "/";';
                 echo '</script>';
             }
-        }
         break;
     case '/login':
         

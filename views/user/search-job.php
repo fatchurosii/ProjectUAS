@@ -73,18 +73,20 @@ session_start();
         </div>
     </div>
 
-    <div class="container mt-5 ">
-        <div class="row">
+    <div class="container mt-5">
+        <div class="row" align="center">
             <?php
             foreach ($search->showJobList() as $x) {
                 ?>
-                <div class="col-md-3 ml-5 mr-5">
+                <center>
+                <div class="col-md-3 mr-3 mt-3" align="center">
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
                             <p class="card-text"><?php echo $x['jobName']; ?></p>
                         </div>
                     </div>
                 </div>
+                </center>
 
             <?php
             }
@@ -93,20 +95,8 @@ session_start();
 
 
 
-            <div class="col-md-3 mr-5">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-            </div>
+            
+          
         </div>
     </div>
 
