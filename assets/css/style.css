@@ -1,6 +1,6 @@
 /* PROPERTIES UMUM */
     html{
-        font-family: 'Lato';
+        font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
     }
 
     .text-primary{
@@ -102,7 +102,7 @@
     /* DASHBOARD CSS  */
         .welcome{
             font-size: 24px;
-            color: #0085FF !important;    
+            font-weight: bold;
             margin-bottom: 20px;
             
         }
