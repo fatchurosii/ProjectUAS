@@ -84,7 +84,7 @@
                             </a>
 
                             <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
-                              <a class='dropdown-item text-primary' href='#'>Profile</a>
+                              <a class='dropdown-item text-primary' href='/user'>Profile</a>
                               <a class='dropdown-item text-primary' href='#'>Lamaran Kerja</a>
                               <div class='dropdown-divider'></div>
                               <a class='dropdown-item text-danger' href='logout'>Logout</a>
