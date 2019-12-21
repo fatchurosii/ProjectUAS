@@ -4,6 +4,7 @@
 //NOTE : CUKUP DEKLARASIKAN CLASS DISINI KARENA INI ADALAH ROUTER
 
 include('controllers/dbConfig.php');
+include('controllers/Connection.php');
 include('controllers/AuthControllers.php');
 include('controllers/JobControllers.php');
 

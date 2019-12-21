@@ -1,11 +1,17 @@
 <?php        
-    class AuthControllers{
-        public $db;
+    // include('./dbConfig.php');
+    class AuthControllers extends Connection{
+        // public $db;
 
-        public function __construct(){
-            $this->db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+        // public function __construct(){
+        //     $this->db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
-        }   
+        // }
+        
+        // public function __construct()
+        // {
+        //     parent::__construct(); //Memanggil parent constructor untuk membuka koneksi
+        // }
 
         public function register($username,$email,$password,$roles){
             
@@ -101,5 +107,4 @@
 
         }
         
-    }    
-?>
+    }
