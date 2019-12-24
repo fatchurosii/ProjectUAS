@@ -1,0 +1,19 @@
+.nav-item button{
+    border-radius: 20px;
+    background-color:  #0085FF !important;
+    font-family: lato;
+    color: white !important;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    width: 100px;
+}
+.container .text-banner {
+    font-family: lato;
+    color: #0085FF !important;
+}
+.container .text1 h2{
+    margin-top:100px;
+}
+.custom-iklan button {
+   border-radius:20px;
+
+}
