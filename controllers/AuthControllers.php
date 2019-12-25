@@ -1,21 +1,12 @@
 <?php        
-    // include('./dbConfig.php');
-    class AuthControllers extends Connection{
-        // public $db;
+    // include('./dbConfig.php');    
+    
+    class AuthControllers {
+  
+        // public $db = new Connection();
+        function register($username,$email,$password,$roles){
+            $db = new Connection();
 
-        // public function __construct(){
-        //     $this->db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-
-        // }
-        
-        // public function __construct()
-        // {
-        //     parent::__construct(); //Memanggil parent constructor untuk membuka koneksi
-        // }
-
-        public function register($username,$email,$password,$roles){
-            
-            
             $username = $_POST['username'];
             $email = $_POST['email'];
             $password = $_POST['password'];
@@ -27,7 +18,7 @@
 			$query="SELECT * FROM tbAuth WHERE username='$username' OR email='$email'";
            
 			//Cek username
-			$check =  $this->db->query($query) ;
+			$check =  $db->db->query($query) ;
             $count_row = $check->num_rows;
             
             // $count_row = mysqli_num_rows($check);
@@ -38,7 +29,7 @@
 
                 $query1="INSERT INTO `tbAuth` (`username`,`email`,`password`,`roles`) VALUES ('$username','$email','$hash','$roles')";
 
-                $result = mysqli_query($this->db,$query1) or die(mysqli_connect_errno()."Error : ".mysqli_error($this->db));                    
+                $result = mysqli_query($db->db,$query1) or die(mysqli_connect_errno()."Error : ".mysqli_error($db->db));                    
                              
                 return $result;
 			}
@@ -49,11 +40,10 @@
         }
         
         public function login ($email, $password){
+            
 
-			$query="SELECT * from `tbAuth` WHERE `email`='$email' ";                        
-            
-            
-            $result = mysqli_query($this->db,$query);
+			$query="SELECT * from `tbAuth` WHERE `email`='$email' ";                                                
+            $result = Connection::$db->query($query);
             
             // $user_data = mysqli_fetch_array($result);
             
@@ -85,7 +75,7 @@
 	        }
 	        else{
 			    return false;
-			}
+			}   
         }
 
 

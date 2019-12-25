@@ -3,10 +3,15 @@
 
 //NOTE : CUKUP DEKLARASIKAN CLASS DISINI KARENA INI ADALAH ROUTER
 
-include('controllers/dbConfig.php');
-include('controllers/Connection.php');
+// include('controllers/dbConfig.php');
+require_once './controllers/dbConfig.php';
+require_once './controllers/Connection.php';
+
+// include('controllers/Connection.php');
 include('controllers/AuthControllers.php');
 include('controllers/JobControllers.php');
+
+$conn = new Connection();
 
 // Menyimpan request url
 $request = $_SERVER['REQUEST_URI'];
@@ -23,7 +28,7 @@ switch ($request) {
         require __DIR__ . '/views/user/index.php';
         break;
     case '/search':
-        $search = new JobControllers();
+        $search = new JobControllers();                
         require __DIR__ . '/views/user/search-job.php';
         break;
     case '/employeer':
@@ -33,8 +38,7 @@ switch ($request) {
     case '/register?act=register':
         // require __DIR__ . '/controllers/AuthControllers.php'; 
         $auth = new AuthControllers();
-
-
+        
         $condition = $_GET['act'];
 
         if ($condition == 'register') {

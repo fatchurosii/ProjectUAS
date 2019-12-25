@@ -1,15 +1,23 @@
 <?php    
     class Connection{
-        public $db;
+        public static $db;
 
         public function __construct(){
-            $this->db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+            self::$db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
-            if(mysqli_connect_errno()){
-                printf("Connect failed: %s\n", mysqli_connect_error());
+            if($this->db->connect_error){
+                die("Connection failed : " . $this->connect_error);
             }
+                // echo "Connected successfully";                            
+            
         }   
 
     }
+    
+    
+    // $db  = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+    // if(mysqli_connect_errno()){
+    //     printf("Connect failed: %s\n", mysqli_connect_error());
+    // }
 
 ?>
