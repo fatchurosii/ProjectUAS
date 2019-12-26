@@ -5,8 +5,7 @@
   
         // public $db = new Connection();
         function register($username,$email,$password,$roles){
-            $db = new Connection();
-
+            
             $username = $_POST['username'];
             $email = $_POST['email'];
             $password = $_POST['password'];
@@ -18,7 +17,7 @@
 			$query="SELECT * FROM tbAuth WHERE username='$username' OR email='$email'";
            
 			//Cek username
-			$check =  $db->db->query($query) ;
+			$check = Connection::$db->query($query);
             $count_row = $check->num_rows;
             
             // $count_row = mysqli_num_rows($check);
@@ -29,7 +28,7 @@
 
                 $query1="INSERT INTO `tbAuth` (`username`,`email`,`password`,`roles`) VALUES ('$username','$email','$hash','$roles')";
 
-                $result = mysqli_query($db->db,$query1) or die(mysqli_connect_errno()."Error : ".mysqli_error($db->db));                    
+                $result = mysqli_query(Connection::$db,$query1) or die(mysqli_connect_errno()."Error : ".mysqli_error(Connection::$db));                    
                              
                 return $result;
 			}

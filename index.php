@@ -90,7 +90,12 @@ switch ($request) {
         $auth->getLogout();
 
         break;
-
+    case '/user/lamaran':
+        require __DIR__ . '/views/user/lamaran.php';
+        break;
+    case '/search/job-detail':
+        require __DIR__ . '/views/user/job-detail.php';
+        break;
     default:
         require __DIR__ . '/views/404.php';
         break;
