@@ -212,7 +212,7 @@
     <!-- End Modal Reg -->
     <div class="container">
         <div class="row">
-            <div class="col-6-md mt-5">
+            <div class="col-8-md mt-5">
             
             <div class="card" style="width: 200px;">
             <div class="card-body">
@@ -229,9 +229,24 @@
                 <h6 class="=text3">Ini Salary</h6>
                 <button type="button"class="btn btn-primary">Apply</button>
                 </div>
-                <div class="card card-deskripsi">
-                <div class="card-body">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ratione porro dolores consequuntur officiis architecto, sint harum natus atque mollitia, saepe consectetur repellendus quisquam possimus vero recusandae nesciunt error doloribus.
+                <div class="card card-deskripsi" style="width:600px;">
+                <div class="card-body isi-card">
+                <h5 class="card-title"><b>Job Deskripsi</b></h5>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </div>
+                </div>
+                <div class="card mt-5">
+                    <div class="card-body "style="width:600px">
+                        <h5 class="card-title"><b>Skill Required</b></h5>
+                        >Bisa Baca      >Bisa Tidur     >FreeWifi
+                    </div>
+                </div>
+            </div>
+            <div class="col-4-md mt-5">
+            <div class="card card-em" style="width:400px;">
+                <div class="card-body isi-card">
+                    <h6 class="card-title"><b>Nama Perusahaan</b></h6>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                 </div>
                 </div>
             </div>
