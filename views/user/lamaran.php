@@ -71,8 +71,9 @@
         <div class="container">
             <div class="d-flex flex-column mt-5 sm-12 justify-content-center">
                 <div class="dashboard-user">
-
+                <div class="Judul mb-3"><h3>Daftar Lamaran Kerjamu</h3></div>
                        <div class="row">
+                          
                        <div class="col-md">
                             <table class="table">
                             <thead>
