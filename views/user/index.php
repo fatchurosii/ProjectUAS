@@ -53,7 +53,7 @@
                                 <button class="btn btn-gradient-success btn-block btn-sm  mr-2">Dashboard</button>
                             </li>
                             <li class="nav-item ml-2">
-                                <button class="btn btn-gradient-info btn-block btn-sm  mr-2">Cari Kerja</button>
+                                <a href="/search" class="btn btn-gradient-info btn-block btn-sm  mr-2">Cari Kerja</a>
                             </li>
                             <li class="nav-item ml-2">
                                 <button class="btn btn-gradient-danger btn-block btn-sm  mr-2 ">Logout</button>
