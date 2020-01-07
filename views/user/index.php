@@ -56,7 +56,7 @@
                                 <a href="/search" class="btn btn-gradient-info btn-block btn-sm  mr-2">Cari Kerja</a>
                             </li>
                             <li class="nav-item ml-2">
-                                <button class="btn btn-gradient-danger btn-block btn-sm  mr-2 ">Logout</button>
+                                <a href="/logout" class="btn btn-gradient-danger btn-block btn-sm  mr-2 ">Logout</a>
                             </li>
 
                         </ul>

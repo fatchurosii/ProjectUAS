@@ -21,14 +21,17 @@ $request = $_SERVER['REQUEST_URI'];
 switch ($request) {
     case '/':
     case '':
-        require __DIR__ . '/views/index.php';
-        // require __DIR__ . '/views/user/index.php';
+        require __DIR__ . '/views/index.php';        
         break;
     case '/user':
         require __DIR__ . '/views/user/index.php';
         break;
     case '/search':
         $search = new JobControllers();                
+        require __DIR__ . '/views/user/search-job.php';
+        break;
+    case '/search?params':
+        $search = new JobControllers();
         require __DIR__ . '/views/user/search-job.php';
         break;
     case '/employeer':

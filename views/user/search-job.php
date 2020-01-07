@@ -60,7 +60,7 @@ session_start();
         <div class="row">
             <div class="col-md-3 ">
                 <div class="searchbox">
-                    <form action="#" method="post">
+                    <form action="/search?params" method="post">
                         <div class="d-flex flex-column flex-md-row">
                             <input class="form-control" name="kategori" type="text" placeholder="Kategori Pekerjaan">
                             <input class="form-control" name="posisi" type="text" placeholder="Posisi">
@@ -76,21 +76,47 @@ session_start();
     <div class="container mt-5">
         <div class="row" align="center">
             <?php
-            foreach ($search->showJobList() as $x) {
-                ?>
+            if ($_SERVER['REQUEST_URI'] == '/search') {
+                foreach ($search->showJobList() as $x) {      
+            ?>
+            <!-- IKI RUBAHEN -->
                 <center>
                 <div class="col-md-3 mr-3 mt-3" align="center">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="card-text"><?php echo $x['jobName']; ?></p>
-                        </div>
+                <img src="..." class="card-img-top" alt="...">
+                    <div class="card border-primary mb-3" style="width: 18rem;">
+                        <div class="card-header"><?php echo $x['jobName']; ?></div>
+                        <div class="card-body text-primary">
+                        <h5 class="card-title">Nama Perusahaan</h5>
+                        <i class="fas fa-map-marker-alt"></i><h10 class="card-title"><?php echo $x['jobLocation']; ?></h10>
+                        <p class="card-text"><?php echo $x['jobDesc']; ?></p>
                     </div>
                 </div>
                 </center>
 
+            <!-- IKI RUBAHEN -->
             <?php
+            } //tutup foreach
+
+            }else{
+                foreach ($search->searchJobList() as $y) {                  
+            ?>
+                <center>
+                <div class="col-md-3 mr-3 mt-3" align="center">
+                <img src="#" class="card-img-top" alt="images">
+                    <div class="card border-primary mb-3" style="width: 18rem;">
+                        <div class="card-header"><?php echo $y['jobName']; ?></div>
+                        <div class="card-body text-primary">
+                        <h5 class="card-title">Nama Perusahaan</h5>
+                        <i class="fas fa-map-marker-alt"></i><h10 class="card-title"><?php echo $y['jobLocation']; ?></h10>
+                        <p class="card-text"><?php echo $y['jobDesc']; ?></p>
+                    </div>
+                </div>
+                </center>
+            <?php
+                }
             }
             ?>
+            
 
 
 
