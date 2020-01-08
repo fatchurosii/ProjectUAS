@@ -65,7 +65,7 @@ Job Seeker is Web based Application to find jobs and find employee , we still de
   - Clone this repository
   - Move this project to your local workspace or xampp/lampp 
   - Create virtual host(Apache2 or nginx) **important**
-  - You must can access this web application url similar to this : ex: localhost/ , or localhost:<port>/ **not** localhost:/jobseeker/
+  - You must can access this web application url similar to this : ex: localhost/ , or localhost:port_number/ **not** localhost:/jobseeker/
   - Create a database name: jobseeker and import the **sql** files
   - Setup dbConfig.php with your own database **credential**
   - If you still get an error , feel free to contact me **ahmatdanis24@gmail.com** or **fatchurr0198@gmail.com**
