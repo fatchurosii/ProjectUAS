@@ -106,7 +106,7 @@
                                     <h4 class="font-weight-normal mb-3">Setting Profile <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                                     </h4>
                                     <h5 class="mb-5">Data telah lengkap </h5>
-                                    <h6 class="card-text">Setting -></h6>
+                                    <h6 class="card-text"><a href="/user/setting">Setting</a></h6>
                                 </div>
                             </div>
                         </div>
