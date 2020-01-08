@@ -41,9 +41,32 @@ session_start();
                                 <button class='btn btn-primary btn-sm mr-2'>Login</button>
                             </li>
                             <li class='nav-item'>
-                                <button class='btn btn-primary btn-sm  mr-2'>Register</button>
+                                <button href='/' class='btn btn-primary btn-sm  mr-2'>Register</button>
                             </li>";
-                            } else { }
+                            } else {
+                                echo "
+                            
+                        <li class='nav-item dropdown'>
+                            
+                            <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                            
+                            " . $_SESSION['username'];
+
+                                echo "
+                            </a>
+
+                            <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                              <a class='dropdown-item text-primary' href='/user'>Profile</a>
+                              <a class='dropdown-item text-primary' href='#'>Lamaran Kerja</a>
+                              <div class='dropdown-divider'></div>
+                              <a class='dropdown-item text-danger' href='logout'>Logout</a>
+                              
+                            </div>
+                        </li>
+
+                                          
+                            ";
+                            }
                             ?>
 
 
@@ -60,7 +83,7 @@ session_start();
         <div class="row">
             <div class="col-md-3 ">
                 <div class="searchbox">
-                    <form action="#" method="post">
+                    <form action="/search?params" method="post">
                         <div class="d-flex flex-column flex-md-row">
                             <input class="form-control" name="kategori" type="text" placeholder="Kategori Pekerjaan">
                             <input class="form-control" name="posisi" type="text" placeholder="Posisi">
@@ -74,29 +97,60 @@ session_start();
     </div>
 
     <div class="container mt-5">
-        <div class="row" align="center">
-            <?php
-            foreach ($search->showJobList() as $x) {
-                ?>
-                <center>
-                <div class="col-md-3 mr-3 mt-3" align="center">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="card-text"><?php echo $x['jobName']; ?></p>
-                        </div>
-                    </div>
-                </div>
-                </center>
+        <div class="row">
 
             <?php
+            if ($_SERVER['REQUEST_URI'] == '/search') {
+                foreach ($search->showJobList() as $x) {
+            ?>
+                    <center>
+                        <div class="col-md-3 mr-3 mt-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header"><?php echo $x['jobName']; ?></div>
+                                <img class="card-img-top img-fluid" src="/assets/img/job-sample.png" alt="Card image cap" style="width:auto;height:auto;max-width:100px;">
+                                <div class="card-body">
+                                    <p class="card-title">Nama Perusahaan</p>
+                                    <p class="card-text"> <i class="fas fa-map-marker-alt"></i> <?php echo $x['jobLocation']; ?></p>
+                                    <p class="card-text"><?php echo $x['jobDesc']; ?></p>
+                                    <a href="#" class="btn btn-sm btn-primary">Lamar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </center>
+
+                    <!-- IKI RUBAHEN -->
+                <?php
+                } //tutup foreach
+
+            } else {
+                foreach ($search->searchJobList() as $y) {
+                ?>
+
+                    <center>
+                        <div class="col-md-3 mr-3 mt-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header"><?php echo $y['jobName']; ?></div>
+                                <img class="card-img-top img-fluid" src="/assets/img/job-sample.png" alt="Card image cap" style="width:auto;height:auto;max-width:100px;">
+                                <div class="card-body">
+                                    <p class="card-title">Nama Perusahaan</p>
+                                    <p class="card-text"> <i class="fas fa-map-marker-alt"></i> <?php echo $y['jobLocation']; ?></p>
+                                    <p class="card-text"><?php echo $y['jobDesc']; ?></p>
+                                    <a href="#" class="btn btn-sm btn-primary">Lamar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </center>
+            <?php
+                }
             }
             ?>
 
 
 
 
-            
-          
+
+
+
         </div>
     </div>
 

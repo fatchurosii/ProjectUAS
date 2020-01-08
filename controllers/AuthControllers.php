@@ -1,9 +1,8 @@
 <?php        
-    // include('./dbConfig.php');    
-    
+        
     class AuthControllers {
   
-        // public $db = new Connection();
+    
         function register($username,$email,$password,$roles){
             
             $username = $_POST['username'];
