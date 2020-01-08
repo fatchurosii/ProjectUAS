@@ -12,7 +12,7 @@ include('controllers/AuthControllers.php');
 include('controllers/JobControllers.php');
 
 $conn = new Connection();
-
+$search = new JobControllers();
 // Menyimpan request url
 $request = $_SERVER['REQUEST_URI'];
 
@@ -21,18 +21,34 @@ $request = $_SERVER['REQUEST_URI'];
 switch ($request) {
     case '/':
     case '':
-        require __DIR__ . '/views/index.php';        
+        require __DIR__ . '/views/index.php';
         break;
     case '/user':
         require __DIR__ . '/views/user/index.php';
         break;
     case '/search':
-        $search = new JobControllers();                
         require __DIR__ . '/views/user/search-job.php';
         break;
     case '/search?params':
-        $search = new JobControllers();
         require __DIR__ . '/views/user/search-job.php';
+        break;
+    case '/search?action=lamar':
+        $idJob = $_POST['idJob'];
+        $idJobseeker = $_POST['idJobseeker'];
+        
+        $lamar = $search->joinJob($idJob, $idJobseeker);
+
+        if ($lamar) {
+            echo '<script type="text/javascript">';
+            echo 'alert("Berhasil memproses lamaran anda !");';
+            echo 'window.location.href = "/search";';
+            echo '</script>';
+        } else {
+            echo '<script type="text/javascript">';
+            echo 'alert("Anda sudah melamar pekerjaan ini !");';
+            echo 'window.location.href = "/search";';
+            echo '</script>';
+        }
         break;
     case '/employeer':
         require __DIR__ . '/views/employeer/index.php';
@@ -41,7 +57,7 @@ switch ($request) {
     case '/register?act=register':
         // require __DIR__ . '/controllers/AuthControllers.php'; 
         $auth = new AuthControllers();
-        
+
         $condition = $_GET['act'];
 
         if ($condition == 'register') {
@@ -49,36 +65,34 @@ switch ($request) {
             // header("location:/");
             if ($register) {
                 // Registration Success
-
                 echo '<script type="text/javascript">';
                 echo 'alert("Berhasil mendaftar !");';
                 echo 'window.location.href = "/";';
                 echo '</script>';
             } else {
-
                 echo '<script type="text/javascript">';
-            }
                 echo 'alert("Email atau Username telah terdaftar !");';
                 echo 'window.location.href = "/";';
                 echo '</script>';
             }
+        }
         break;
     case '/login':
-        
+
         $auth = new AuthControllers();
 
         if (isset($_REQUEST['submit'])) {
             extract($_REQUEST);
             $login = $auth->login($email, $password);
             if ($login) {
-                
+
 
                 echo '<script type="text/javascript">';
                 echo 'alert("Login Success !");';
                 echo 'window.location.href = "/";';
                 echo '</script>';
             } else {
-                
+
                 echo '<script type="text/javascript">';
                 echo 'alert("Email/Password tidak terdaftar !");';
                 echo 'window.location.href = "/";';
@@ -87,7 +101,7 @@ switch ($request) {
         }
 
         break;
-    
+
     case '/logout':
         $auth = new AuthControllers();
         $auth->getLogout();

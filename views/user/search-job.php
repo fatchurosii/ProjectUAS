@@ -105,6 +105,7 @@ session_start();
             ?>
                     <center>
                         <div class="col-md-3 mr-3 mt-3">
+
                             <div class="card" style="width: 18rem;">
                                 <div class="card-header"><?php echo $x['jobName']; ?></div>
                                 <img class="card-img-top img-fluid" src="/assets/img/job-sample.png" alt="Card image cap" style="width:auto;height:auto;max-width:100px;">
@@ -112,9 +113,14 @@ session_start();
                                     <p class="card-title">Nama Perusahaan</p>
                                     <p class="card-text"> <i class="fas fa-map-marker-alt"></i> <?php echo $x['jobLocation']; ?></p>
                                     <p class="card-text"><?php echo $x['jobDesc']; ?></p>
-                                    <a href="#" class="btn btn-sm btn-primary">Lamar</a>
+                                    <form action="/search?action=lamar" method="POST">
+                                        <input type="hidden" name="idJob" value="<?php echo $x['id']; ?>">
+                                        <input type="hidden" name="idJobseeker" value="<?php echo $_SESSION['id']; ?>">
+                                        <input type="submit" class="btn btn-sm btn-primary" value="Lamar">
+                                    </form>
                                 </div>
                             </div>
+
                         </div>
                     </center>
 

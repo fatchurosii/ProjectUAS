@@ -56,12 +56,13 @@
                 if(password_verify($password,$row['password'])){
                     session_start();
                     
+                    $_SESSION['id'] = $row['id'];
                     $_SESSION['username'] = $row['username'];
                     $_SESSION['email'] = $email;
-                    $_SESSION['roles'] = $row['roles'];
+                    $_SESSION['roles'] = $row['roles'];                    
 
 	                $_SESSION['login'] = TRUE;
-                    // $_SESSION['id'] = $row['id'];
+
                     
                     return true;
                     
