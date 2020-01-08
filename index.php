@@ -110,6 +110,10 @@ switch ($request) {
     case '/user/lamaran':
         require __DIR__ . '/views/user/lamaran.php';
         break;
+    case '/user/setting':
+        require __DIR__ . '/views/user/setting.php';
+        break;
+
     case '/search/job-detail':
         require __DIR__ . '/views/user/job-detail.php';
         break;
