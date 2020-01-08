@@ -41,9 +41,32 @@ session_start();
                                 <button class='btn btn-primary btn-sm mr-2'>Login</button>
                             </li>
                             <li class='nav-item'>
-                                <button class='btn btn-primary btn-sm  mr-2'>Register</button>
+                                <button href='/' class='btn btn-primary btn-sm  mr-2'>Register</button>
                             </li>";
-                            } else { }
+                            } else {
+                                echo "
+                            
+                        <li class='nav-item dropdown'>
+                            
+                            <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                            
+                            " . $_SESSION['username'];
+
+                                echo "
+                            </a>
+
+                            <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                              <a class='dropdown-item text-primary' href='/user'>Profile</a>
+                              <a class='dropdown-item text-primary' href='#'>Lamaran Kerja</a>
+                              <div class='dropdown-divider'></div>
+                              <a class='dropdown-item text-danger' href='logout'>Logout</a>
+                              
+                            </div>
+                        </li>
+
+                                          
+                            ";
+                            }
                             ?>
 
 
@@ -74,55 +97,60 @@ session_start();
     </div>
 
     <div class="container mt-5">
-        <div class="row" align="center">
+        <div class="row">
+
             <?php
             if ($_SERVER['REQUEST_URI'] == '/search') {
-                foreach ($search->showJobList() as $x) {      
+                foreach ($search->showJobList() as $x) {
             ?>
-            <!-- IKI RUBAHEN -->
-                <center>
-                <div class="col-md-3 mr-3 mt-3" align="center">
-                <img src="..." class="card-img-top" alt="...">
-                    <div class="card border-primary mb-3" style="width: 18rem;">
-                        <div class="card-header"><?php echo $x['jobName']; ?></div>
-                        <div class="card-body text-primary">
-                        <h5 class="card-title">Nama Perusahaan</h5>
-                        <i class="fas fa-map-marker-alt"></i><h10 class="card-title"><?php echo $x['jobLocation']; ?></h10>
-                        <p class="card-text"><?php echo $x['jobDesc']; ?></p>
-                    </div>
-                </div>
-                </center>
+                    <center>
+                        <div class="col-md-3 mr-3 mt-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header"><?php echo $x['jobName']; ?></div>
+                                <img class="card-img-top img-fluid" src="/assets/img/job-sample.png" alt="Card image cap" style="width:auto;height:auto;max-width:100px;">
+                                <div class="card-body">
+                                    <p class="card-title">Nama Perusahaan</p>
+                                    <p class="card-text"> <i class="fas fa-map-marker-alt"></i> <?php echo $x['jobLocation']; ?></p>
+                                    <p class="card-text"><?php echo $x['jobDesc']; ?></p>
+                                    <a href="#" class="btn btn-sm btn-primary">Lamar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </center>
 
-            <!-- IKI RUBAHEN -->
-            <?php
-            } //tutup foreach
+                    <!-- IKI RUBAHEN -->
+                <?php
+                } //tutup foreach
 
-            }else{
-                foreach ($search->searchJobList() as $y) {                  
-            ?>
-                <center>
-                <div class="col-md-3 mr-3 mt-3" align="center">
-                <img src="#" class="card-img-top" alt="images">
-                    <div class="card border-primary mb-3" style="width: 18rem;">
-                        <div class="card-header"><?php echo $y['jobName']; ?></div>
-                        <div class="card-body text-primary">
-                        <h5 class="card-title">Nama Perusahaan</h5>
-                        <i class="fas fa-map-marker-alt"></i><h10 class="card-title"><?php echo $y['jobLocation']; ?></h10>
-                        <p class="card-text"><?php echo $y['jobDesc']; ?></p>
-                    </div>
-                </div>
-                </center>
+            } else {
+                foreach ($search->searchJobList() as $y) {
+                ?>
+
+                    <center>
+                        <div class="col-md-3 mr-3 mt-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header"><?php echo $y['jobName']; ?></div>
+                                <img class="card-img-top img-fluid" src="/assets/img/job-sample.png" alt="Card image cap" style="width:auto;height:auto;max-width:100px;">
+                                <div class="card-body">
+                                    <p class="card-title">Nama Perusahaan</p>
+                                    <p class="card-text"> <i class="fas fa-map-marker-alt"></i> <?php echo $y['jobLocation']; ?></p>
+                                    <p class="card-text"><?php echo $y['jobDesc']; ?></p>
+                                    <a href="#" class="btn btn-sm btn-primary">Lamar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </center>
             <?php
                 }
             }
             ?>
-            
 
 
 
 
-            
-          
+
+
+
         </div>
     </div>
 
