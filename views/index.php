@@ -32,7 +32,7 @@
 
     <div class="container-fluid shadow-sm bg-white">
         <?php
-        session_start();                    
+        session_start();
         ?>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -54,7 +54,7 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="/">Home </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link" href="/search">Cari Kerja</a>
                         </li>
@@ -152,7 +152,7 @@
                     <a class="text " href="">Forgot Password?</a>
                 </div>
             </div>
-            <!--/.Content-->
+            <!--Content-->
         </div>
     </div>
     <!-- Modal -->
@@ -248,7 +248,7 @@
         </div>
 
 
-    </div>
+        </!-->
 
 </body>
 <!-- Optional JavaScript -->

@@ -38,10 +38,10 @@ session_start();
                             <?php
                             if ($_SESSION['login'] == FALSE) {
                                 echo "<li class='nav-item'>
-                                <button class='btn btn-primary btn-sm mr-2'>Login</button>
+                                <a href='/' data-toggle='modal' data-target='#modalLogin' class='btn btn-primary btn-sm mr-2'>Login</a>
                             </li>
                             <li class='nav-item'>
-                                <button href='/' class='btn btn-primary btn-sm  mr-2'>Register</button>
+                                <a href='/' class='btn btn-primary btn-sm  mr-2'>Register</a>
                             </li>";
                             } else {
                                 echo "
@@ -78,6 +78,53 @@ session_start();
         </nav>
     </div>
 
+    <!-- MODAL  -->
+    <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <!--Content-->
+            <div class="modal-content ">
+                <!--Header-->
+                <div class="modal-header text-center border-bottom-0">
+                    <h3 class="modal-title w-100 " id="myModalLabel">Welcome!</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body mx-4">
+                    <!--Body-->
+
+                    <form action='/login' method="post">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" class="form-control" placeholder="Masukkan Email Anda">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="form-control" placeholder="Masukkan Password Anda">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit " name=submit class="login btn btn-primary round mb-3">Login</button>
+                        </div>
+
+                    </form>
+
+
+
+                </div>
+                <!--Footer-->
+                <div class="text-center mb-3">
+                    <a class="text" onclick="$('#modalLogin').modal('hide')" data-toggle="modal" data-target="#modalReg" href="#">Dont Have Any Account ? Sign Up Now!</a>
+                    <br>
+                    <a class="text " href="">Forgot Password?</a>
+                </div>
+            </div>
+            <!--Content-->
+        </div>
+    </div>
+
+    <!-- END MODAL -->
+
 
     <div class="container">
         <div class="row">
@@ -85,44 +132,79 @@ session_start();
                 <div class="searchbox">
                     <form action="/search?params" method="post">
                         <div class="d-flex flex-column flex-md-row">
-                            <input class="form-control" name="kategori" type="text" placeholder="Kategori Pekerjaan">
-                            <input class="form-control" name="posisi" type="text" placeholder="Posisi">
-                            <input class="form-control" name="lokasi" type="text" placeholder="Lokasi">
+                            <!-- <input class="form-control" name="kategori" type="text" placeholder="Kategori Pekerjaan"> -->
+                            <select class="form-control pr-4"   name="kategori" >
+                                <option value="" disabled selected> Kategori Pekerjaan </option>                                
+                                <?php foreach ($search->showJobList() as $x) { ?>
+                                <option value="<?php echo $x['jobCategory']; ?>"><?php echo $x['jobCategory']; ?></option>
+                                <?php } ?>
+                                
+                            </select>
+
+                            <select class="form-control pr-4"   name="posisi" >
+                                <option value="" disabled selected> Posisi Pekerjaan </option>
+                                <?php foreach ($search->showJobList() as $x) { ?>
+                                    <option value="<?php echo $x['jobName']; ?>"><?php echo $x['jobName']; ?></option>
+                                <?php } ?>
+                            </select>
+                            
+                            <select class="form-control pr-4"   name="lokasi" >
+                                <option value="" disabled selected> Lokasi Pekerjaan </option>
+                                <?php foreach ($search->showJobList() as $x) { ?>
+                                    <option value="<?php echo $x['jobLocation']; ?>"><?php echo $x['jobLocation']; ?></option>
+                                <?php } ?>
+                            </select>
+                            
                             <button class="btn btn-primary btn-sm " type="submit" type="text"> <i class="fas fa-search fa-2x"></i> </button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
 
-    <div class="container mt-5">
+    <!-- <div class="container mt-5"> -->
+        
         <div class="row">
 
             <?php
             if ($_SERVER['REQUEST_URI'] == '/search') {
                 foreach ($search->showJobList() as $x) {
             ?>
-                    <center>
-                        <div class="col-md-3 mr-3 mt-3">
+                    
+                        <div class="col-md-4 mt-5 text-center">
 
-                            <div class="card" style="width: 18rem;">
+                            <div class="card mx-auto" style="width: 18rem;">
                                 <div class="card-header"><?php echo $x['jobName']; ?></div>
-                                <img class="card-img-top img-fluid" src="/assets/img/job-sample.png" alt="Card image cap" style="width:auto;height:auto;max-width:100px;">
+                                <img class="card-img-top img-fluid align-self-center" src="/assets/img/job-sample.png" alt="Card image cap" style="width:auto;height:auto;max-width:100px;">
                                 <div class="card-body">
                                     <p class="card-title">Nama Perusahaan</p>
                                     <p class="card-text"> <i class="fas fa-map-marker-alt"></i> <?php echo $x['jobLocation']; ?></p>
                                     <p class="card-text"><?php echo $x['jobDesc']; ?></p>
-                                    <form action="/search?action=lamar" method="POST">
+
+                                    <form action="/search?action=lihat" method="POST">
                                         <input type="hidden" name="idJob" value="<?php echo $x['id']; ?>">
                                         <input type="hidden" name="idJobseeker" value="<?php echo $_SESSION['id']; ?>">
-                                        <input type="submit" class="btn btn-sm btn-primary" value="Lamar">
+                                        <input type="submit" class="btn btn-sm btn-primary" value="Lihat Detail">
                                     </form>
+
+
+                                    <?php if ($_SESSION['login'] == TRUE) { ?>
+                                        <form action="/search?action=lamar" method="POST">
+                                            <input type="hidden" name="idJob" value="<?php echo $x['id']; ?>">
+                                            <input type="hidden" name="idJobseeker" value="<?php echo $_SESSION['id']; ?>">
+                                            <input type="submit" class="btn btn-sm btn-primary" value="Lamar">
+                                        </form>
+
+                                    <?php } else {
+                                    } ?>
+
                                 </div>
                             </div>
 
+
                         </div>
-                    </center>
+                    
 
                     <!-- IKI RUBAHEN -->
                 <?php
