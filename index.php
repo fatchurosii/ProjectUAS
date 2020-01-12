@@ -53,6 +53,9 @@ switch ($request) {
     case '/employeer':
         require __DIR__ . '/views/employeer/index.php';
         break;
+    case '/buatlamaran':
+        require __DIR__ . '/views/employeer/lamaran.php';
+        break;
         // CONTROLLER LOGIC
     case '/register?act=register':
         // require __DIR__ . '/controllers/AuthControllers.php'; 
