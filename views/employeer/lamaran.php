@@ -68,7 +68,7 @@ session_start();
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="/employeer/data-lowongan">
           <i class="fas fa-fw fa-file"></i>
           <span>Data Lowongan</span></a>
       </li>

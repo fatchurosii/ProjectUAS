@@ -6,7 +6,7 @@ class UserControllers
     {
         $query = "INSERT INTO `tbJobseeker` (`tokenID`,`fullName`,`address`,`phoneNumber`) VALUES ('$id','null','null','0') ";
         $result = Connection::$db->query($query);
-        
+
         return $result;
     }
 
@@ -70,11 +70,11 @@ class UserControllers
         }
     }
 
-    
+
     //Digunakan untuk overloading
     public function __call($name, $args)
     {
-        switch($name) {
+        switch ($name) {
             case 'dataLamaran':
                 switch (count($args)) {
                     case 0:
@@ -85,16 +85,21 @@ class UserControllers
                         break;
                 }
             case 'dataPelamar':
-                return call_user_func_array(array($this, 'getDataPelamar'), $args); 
+                return call_user_func_array(array($this, 'getDataPelamar'), $args);
+                break;
             case 'countdataLamaran':
-                return call_user_func_array(array($this, 'getCountLamaranEmployeer'), $args);       
+                return call_user_func_array(array($this, 'getCountLamaranEmployeer'), $args);
+                break;
+            case 'countdataLowongan':
+                return call_user_func_array(array($this, 'getCountLowonganEmployeer'), $args);
+                break;
         }
     }
 
     private function getDataLamaranAll()
     {
         $query = "SELECT * from `tbJobList` INNER JOIN `tbJobJoin` ON tbJobList.id = tbJobJoin.idJob ";
-        
+
         $result = Connection::$db->query($query);
         $count = $result->num_rows;
         if ($count > 0) {
@@ -111,14 +116,14 @@ class UserControllers
 
     private function getDataLamaranEmployeer($idEmployeer)
     {
-        $query = "SELECT * from `tbJobList` INNER JOIN `tbJobJoin` ON tbJobList.id = tbJobJoin.idJob where `idEmployeer` = '$idEmployeer' ";
+        $query = "SELECT * from `tbJobList` LEFT JOIN `tbJobJoin` ON tbJobList.id = tbJobJoin.idJob where `idEmployeer` = '$idEmployeer' ";
         $result = Connection::$db->query($query);
         $count = $result->num_rows;
 
         if ($count > 0) {
 
             while ($data = $result->fetch_array()) {
-                $hasil[] = $data;                
+                $hasil[] = $data;
             }
 
             return $hasil;
@@ -127,7 +132,16 @@ class UserControllers
         }
     }
 
-    private function getDataPelamar($idEmployeer){
+    private function getCountLowonganEmployeer($idEmployeer)
+    {
+        $query = "SELECT * from `tbJobList` where `idEmployeer` = '$idEmployeer' ";
+        $result = Connection::$db->query($query);
+        $count = $result->num_rows;
+        return $count;
+    }
+
+    private function getDataPelamar($idEmployeer)
+    {
         $query = "SELECT * from `tbJobList` INNER JOIN `tbJobJoin` ON tbJobList.id=tbJobJoin.idJob INNER JOIN tbJobseeker ON tbJobseeker.tokenID = tbJobJoin.idJobseeker  where idEmployeer = '$idEmployeer' ";
         $result = Connection::$db->query($query);
         $count = $result->num_rows;
@@ -135,20 +149,19 @@ class UserControllers
         if ($count > 0) {
 
             while ($data = $result->fetch_array()) {
-                $hasil[] = $data;                
+                $hasil[] = $data;
             }
 
             return $hasil;
         } else {
             echo 'Data tidak ada !';
         }
-
     }
-    private function getCountLamaranEmployeer($idEmployeer){
+    private function getCountLamaranEmployeer($idEmployeer)
+    {
         $query = "SELECT * from `tbJobList` INNER JOIN `tbJobJoin` ON tbJobList.id = tbJobJoin.idJob where `idEmployeer` = '$idEmployeer' ";
         $result = Connection::$db->query($query);
         $count = $result->num_rows;
         return $count;
     }
-    
 }

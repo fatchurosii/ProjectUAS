@@ -93,60 +93,60 @@ session_start();
 
     <!-- ModalReg -->
     <div class="modal fade" id="modalReg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <!--Content-->
-            <div class="modal-content ">
-                <!--Header-->
-                <div class="modal-header text-center border-bottom-0">
-                    <h3 class="modal-title w-100 " id="myModalLabel">Get Started!</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <!--Body-->
-                <div class="modal-body mx-4">
-                    <!--Body-->
-                    <form action='/register?act=registerEmployeer' method="post">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <!--Content-->
+        <div class="modal-content ">
+          <!--Header-->
+          <div class="modal-header text-center border-bottom-0">
+            <h3 class="modal-title w-100 " id="myModalLabel">Get Started!</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!--Body-->
+          <div class="modal-body mx-4">
+            <!--Body-->
+            <form action='/register?act=registerEmployeer' method="post">
 
-                        <div class="form-group">
-                            <label for="user">Username</label>
-                            <input type="text" name="username" class="form-control" placeholder="Masukkan Username Anda" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" class="form-control" placeholder="Masukkan Email Anda" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" name="password" class="form-control" placeholder="Masukkan Password Anda" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="hidden" name="roles" class="form-control" value="employeer">
-                        </div>
-                </div>
-                <!--Footer-->
-                <div class="text-center mb-3">
-                    <input type="submit" name="submit" value="Register" class="btn btn-primary round mb-3" />
-                    <br>
-                    <a class="text" onclick="$('#modalReg').modal('hide')" data-toggle="modal" data-target="#modalLogin" href="#">Already have Account ? Sign In Now!</a>
-                </div>
-                </form>
+              <div class="form-group">
+                <label for="user">Username</label>
+                <input type="text" name="username" class="form-control" placeholder="Masukkan Username Anda" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control" placeholder="Masukkan Email Anda" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" placeholder="Masukkan Password Anda" required>
+              </div>
+              <div class="form-group">
+                <input type="hidden" name="roles" class="form-control" value="employeer">
+              </div>
+          </div>
+          <!--Footer-->
+          <div class="text-center mb-3">
+            <input type="submit" name="submit" value="Register" class="btn btn-primary round mb-3" />
+            <br>
+            <a class="text" onclick="$('#modalReg').modal('hide')" data-toggle="modal" data-target="#modalLogin" href="#">Already have Account ? Sign In Now!</a>
+          </div>
+          </form>
 
-            </div>
-            <!--/.Content-->
         </div>
+        <!--/.Content-->
+      </div>
     </div>
     <!-- End Modal Reg -->
 
 
 
 
-    
+
 
   <?php } else { ?>
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="/">Home</a>
+      <a class="navbar-brand mr-1" href="/">Employeer Panel</a>
 
 
 
@@ -154,56 +154,60 @@ session_start();
 
 
       <!-- Navbar -->
-      <ul class="navbar-nav ml-auto ml-md-0">
-
-        <li class="nav-item dropdown no-arrow mx-1">
-          <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-envelope fa-fw"></i>
-            <span class="badge badge-danger">7</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown no-arrow">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown no-arrow ">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle fa-fw"></i>
+            <div>
+              <i class="fas fa-user-circle fa-fw fa-2x"></i>
+              Hi ,
+              <?php echo $_SESSION['username']; ?>
+
+            </div>
+
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
             <a class="dropdown-item" href="#">Settings</a>
-            <a class="dropdown-item" href="#">Activity Log</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+            <a class="dropdown-item" href="/logout">Logout</a>
           </div>
         </li>
       </ul>
 
     </nav>
-    
+
     <div id="wrapper">
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="/employeer">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link active" href="#">
             <i class="fas fa-fw fa-file"></i>
             <span>Data Lowongan</span></a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/buatlamaran">
+          <a class="nav-link" href="/employeer/buat-lowongan">
             <i class="fas fa-fw fa-file-upload"></i>
-            <span>Buat Lamaran</span></a>
+            <span>Buat Lowongan</span></a>
         </li>
+
+        <form method="post" action="/employeer/init">
+          <input type="hidden" name="id" value="<?php echo $_SESSION['id']; ?>">
+
+          <li class="nav-item text-center">
+            <button type="submit" class="btn btn-primary" class="nav-link">
+              <i class="fas fa-fw fa-plus"></i>
+              <span>Init Bio</span>
+          </li>
+
+        </form>
+
 
       </ul>
 
@@ -227,7 +231,7 @@ session_start();
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-comments"></i>
                   </div>
-                  <div class="mr-5">Jumlah Pelamar : <span>20</span> </div>
+                  <div class="mr-5">Jumlah Lowongan : <span><?php echo $search->countdataLowongan($_SESSION['id']); ?></span> </div>
 
                 </div>
 
@@ -248,41 +252,23 @@ session_start();
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Nama</th>
-                      <th>Position</th>
-                      <th>Data Pelamar</th>
-                      <th>Umur</th>
-                      <th>Tanggal Apply</th>
-                      <th>Aksi</th>
+                      <th>Nama Lowongan </th>
+                      <th>Kategori</th>
+                      <th>Jumlah Pelamar</th>
+                      <th>Aksi </th>
                     </tr>
                   </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
-                    </tr>
-                  </tfoot>
+
                   <tbody>
-                    <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
-                    </tr>
-                    <tr>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                    </tr>
+                    <?php foreach ($search->dataLamaran($_SESSION['id']) as $x) { ?>
+                      <!-- OVERLOADING FUNGSI  -->
+                      <tr>
+                        <td><?php echo $x['jobName']; ?></td>
+                        <td><?php echo $x['jobCategory']; ?></td>
+                        <td>0</td>
+                        <td></td>
+                      </tr>
+                    <?php } ?>
 
                   </tbody>
                 </table>
@@ -314,24 +300,7 @@ session_start();
       <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
-          </div>
-        </div>
-      </div>
-    </div>
+
 
 
 

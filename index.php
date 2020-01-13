@@ -43,6 +43,9 @@ switch ($request) {
     case '/employeer/buat-lowongan':
         require __DIR__ . '/views/employeer/lamaran.php';
         break;
+    case '/employeer/data-lowongan':
+        require __DIR__ . '/views/employeer/lowongan.php';
+        break;
     case '/user/lamaran':
         require __DIR__ . '/views/user/lamaran.php';
         break;
