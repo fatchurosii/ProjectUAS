@@ -32,7 +32,7 @@ class JobControllers
             $query = "SELECT * from `tbJobList`";
         }
 
-        $result = Connection::$db-query($query);
+        $result = Connection::$db->query($query);
         $count_row = mysqli_num_rows($result);
 
         if ($count_row > 0) {

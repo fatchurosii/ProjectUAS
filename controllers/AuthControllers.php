@@ -1,7 +1,7 @@
 <?php        
         
     class AuthControllers {
-       
+    
     
         function register($username,$email,$password,$roles){
             
