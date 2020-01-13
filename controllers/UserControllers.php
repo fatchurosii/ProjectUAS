@@ -113,7 +113,7 @@ class UserControllers
             echo 'Data tidak ada !';
         }
     }
-
+    //TES
     private function getDataLamaranEmployeer($idEmployeer)
     {
         $query = "SELECT * from `tbJobList` LEFT JOIN `tbJobJoin` ON tbJobList.id = tbJobJoin.idJob where `idEmployeer` = '$idEmployeer' ";
