@@ -1,7 +1,7 @@
 <?php        
         
     class AuthControllers {
-  
+    
     
         function register(){
             
@@ -27,9 +27,8 @@
 
                 $query1="INSERT INTO `tbAuth` (`username`,`email`,`password`,`roles`) VALUES ('$username','$email','$hash','$roles')";
 
-                $result = mysqli_query(Connection::$db,$query1) or die(mysqli_connect_errno()."Error : ".mysqli_error(Connection::$db));                    
-                
-                
+                $result = Connection::$db->query($query) or die(mysqli_connect_errno()."Error : ".mysqli_error(Connection::$db));                    
+                             
                 return $result;
 			}
 			else { 
@@ -38,7 +37,7 @@
             }
         }
         
-        public function login ($email, $password){
+        function login ($email, $password){
             
 
 			$query="SELECT * from `tbAuth` WHERE `email`='$email' ";                                                
