@@ -93,60 +93,60 @@ session_start();
 
     <!-- ModalReg -->
     <div class="modal fade" id="modalReg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <!--Content-->
-        <div class="modal-content ">
-          <!--Header-->
-          <div class="modal-header text-center border-bottom-0">
-            <h3 class="modal-title w-100 " id="myModalLabel">Get Started!</h3>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <!--Body-->
-          <div class="modal-body mx-4">
-            <!--Body-->
-            <form action='/register?act=registerEmployeer' method="post">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <!--Content-->
+            <div class="modal-content ">
+                <!--Header-->
+                <div class="modal-header text-center border-bottom-0">
+                    <h3 class="modal-title w-100 " id="myModalLabel">Get Started!</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body mx-4">
+                    <!--Body-->
+                    <form action='/register?act=registerEmployeer' method="post">
 
-              <div class="form-group">
-                <label for="user">Username</label>
-                <input type="text" name="username" class="form-control" placeholder="Masukkan Username Anda" required>
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" class="form-control" placeholder="Masukkan Email Anda" required>
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Masukkan Password Anda" required>
-              </div>
-              <div class="form-group">
-                <input type="hidden" name="roles" class="form-control" value="employeer">
-              </div>
-          </div>
-          <!--Footer-->
-          <div class="text-center mb-3">
-            <input type="submit" name="submit" value="Register" class="btn btn-primary round mb-3" />
-            <br>
-            <a class="text" onclick="$('#modalReg').modal('hide')" data-toggle="modal" data-target="#modalLogin" href="#">Already have Account ? Sign In Now!</a>
-          </div>
-          </form>
+                        <div class="form-group">
+                            <label for="user">Username</label>
+                            <input type="text" name="username" class="form-control" placeholder="Masukkan Username Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" class="form-control" placeholder="Masukkan Email Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="form-control" placeholder="Masukkan Password Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" name="roles" class="form-control" value="employeer">
+                        </div>
+                </div>
+                <!--Footer-->
+                <div class="text-center mb-3">
+                    <input type="submit" name="submit" value="Register" class="btn btn-primary round mb-3" />
+                    <br>
+                    <a class="text" onclick="$('#modalReg').modal('hide')" data-toggle="modal" data-target="#modalLogin" href="#">Already have Account ? Sign In Now!</a>
+                </div>
+                </form>
 
+            </div>
+            <!--/.Content-->
         </div>
-        <!--/.Content-->
-      </div>
     </div>
     <!-- End Modal Reg -->
 
 
 
 
-
+    
 
   <?php } else { ?>
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="/">Employeer Panel</a>
+      <a class="navbar-brand mr-1" href="/">Home</a>
 
 
 
@@ -154,19 +154,27 @@ session_start();
 
 
       <!-- Navbar -->
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown no-arrow ">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <div>
-              <i class="fas fa-user-circle fa-fw fa-2x"></i>
-              Hi , 
-                <?php echo $_SESSION['username']; ?>
-              
-            </div>
+      <ul class="navbar-nav ml-auto ml-md-0">
 
+        <li class="nav-item dropdown no-arrow mx-1">
+          <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-envelope fa-fw"></i>
+            <span class="badge badge-danger">7</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-circle fa-fw"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
             <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item" href="#">Activity Log</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
@@ -174,7 +182,7 @@ session_start();
       </ul>
 
     </nav>
-
+    
     <div id="wrapper">
 
       <!-- Sidebar -->
@@ -311,15 +319,15 @@ session_start();
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Apakah anda ingin logout?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Pastikan data anda telah tersimpan semua, dan jika ingin melanjutkan silahkan klik logout dibawah ini !</div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="/logout">Logout</a>
+            <a class="btn btn-primary" href="login.html">Logout</a>
           </div>
         </div>
       </div>

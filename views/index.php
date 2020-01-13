@@ -55,7 +55,7 @@
                             <a class="nav-link" href="/">Home </a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item" id="cari-kerja">
                             <a class="nav-link" href="/search">Cari Kerja</a>
                         </li>
                         <?php
@@ -71,6 +71,33 @@
                             <button class='btn btn-primary btn-sm roundeds mr-2 ' data-toggle='modal' data-target='#modalReg'>Register</button>
                         </li>
                         ";
+                        } else if ($_SESSION['roles'] == 'employeer') {
+                            echo "<script>
+                            document.querySelector('#cari-kerja').classList.add('d-none');
+                            </script>";
+
+                            echo "
+                            
+                            <li class='nav-item dropdown'>
+                                
+                                <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                
+                                " . $_SESSION['username'];
+
+                            echo "
+                                </a>
+    
+                                <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                                  <a class='dropdown-item text-primary' href='/user'>Profile</a>
+                                  <a class='dropdown-item text-primary' href='/employeer'>Employeer Area</a>
+                                  <div class='dropdown-divider'></div>
+                                  <a class='dropdown-item text-danger' href='logout'>Logout</a>
+                                  
+                                </div>
+                            </li>
+    
+                                              
+                                ";
                         } else {
                             echo "
                             

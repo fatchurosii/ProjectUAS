@@ -1,8 +1,4 @@
 <?php
-    Class ProfileControllers extends Connection{
-
-
-
-        
-    }
-?>
+class ProfileControllers
+{
+}

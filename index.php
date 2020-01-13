@@ -13,6 +13,7 @@ include('controllers/JobControllers.php');
 
 $conn = new Connection();
 $search = new JobControllers();
+$auth = new AuthControllers();
 // Menyimpan request url
 $request = $_SERVER['REQUEST_URI'];
 
@@ -35,7 +36,7 @@ switch ($request) {
     case '/search?action=lamar':
         $idJob = $_POST['idJob'];
         $idJobseeker = $_POST['idJobseeker'];
-        
+
         $lamar = $search->joinJob($idJob, $idJobseeker);
 
         if ($lamar) {
@@ -58,14 +59,11 @@ switch ($request) {
         break;
         // CONTROLLER LOGIC
     case '/register?act=register':
-        // require __DIR__ . '/controllers/AuthControllers.php'; 
-        $auth = new AuthControllers();
-
         $condition = $_GET['act'];
 
         if ($condition == 'register') {
             $register = $auth->register($_POST['username'], $_POST['email'], $_POST['password'], $_POST['roles']);
-            // header("location:/");
+
             if ($register) {
                 // Registration Success
                 echo '<script type="text/javascript">';
@@ -79,10 +77,32 @@ switch ($request) {
                 echo '</script>';
             }
         }
+
         break;
+    case '/register?act=registerEmployeer':
+        $condition = $_GET['act'];
+
+        if ($condition == 'registerEmployeer') {
+            $registerEmployeer = $auth->register($_POST['username'], $_POST['email'], $_POST['password'], $_POST['roles']);
+
+            if ($registerEmployeer) {
+                // Registration Success
+                echo '<script type="text/javascript">';
+                echo 'alert("Berhasil mendaftar !");';
+                echo 'window.location.href = "/employeer";';
+                echo '</script>';
+            } else {
+                echo '<script type="text/javascript">';
+                echo 'alert("Email atau Username telah terdaftar !");';
+                echo 'window.location.href = "/employeer";';
+                echo '</script>';
+            }
+        }
+
+        break;
+
     case '/login':
 
-        $auth = new AuthControllers();
 
         if (isset($_REQUEST['submit'])) {
             extract($_REQUEST);
@@ -104,9 +124,31 @@ switch ($request) {
         }
 
         break;
+    case '/loginEmployeer':
+
+        if (isset($_REQUEST['submit'])) {
+            extract($_REQUEST);
+            $login = $auth->login($email, $password);
+            if ($login) {
+
+
+                echo '<script type="text/javascript">';
+                echo 'alert("Login Success !");';
+                echo 'window.location.href = "/employeer";';
+                echo '</script>';
+            } else {
+
+                echo '<script type="text/javascript">';
+                echo 'alert("Email/Password tidak terdaftar !");';
+                echo 'window.location.href = "/employeer";';
+                echo '</script>';
+            }
+        }
+
+        break;
 
     case '/logout':
-        $auth = new AuthControllers();
+
         $auth->getLogout();
 
         break;
