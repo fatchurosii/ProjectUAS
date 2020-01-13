@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Dashboard - Employee</title>
+  <title>Dashboard - Employeer</title>
 
   <!-- Custom fonts for this template-->
   <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -128,7 +128,7 @@
     <label for="job deskripsi">Job Deskripsi</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" ></textarea>
   </div>
-  <button type="button" class="btn btn-primary">Save</button>
+  <button type="submit" class="btn btn-primary">Save</button>
 </form>
                 
                    

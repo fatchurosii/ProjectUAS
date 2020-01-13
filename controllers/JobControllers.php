@@ -7,7 +7,7 @@ class JobControllers
     public function showJobList()
     {
         $query = "SELECT * from `tbJobList`";
-        $result = mysqli_query(Connection::$db, $query);
+        $result = Connection::$db->query($query);
         $count_row = mysqli_num_rows($result);
 
         if ($count_row > 0) {
@@ -32,7 +32,7 @@ class JobControllers
             $query = "SELECT * from `tbJobList`";
         }
 
-        $result = mysqli_query(Connection::$db, $query);
+        $result = Connection::$db-query($query);
         $count_row = mysqli_num_rows($result);
 
         if ($count_row > 0) {
@@ -55,7 +55,7 @@ class JobControllers
             return false;
         } else {
             $query = "INSERT INTO `tbJobJoin` (`idJob`,`idJobseeker`) VALUES ('$idJob','$idJobseeker')";
-            $result = mysqli_query(Connection::$db, $query) or die (mysqli_connect_errno()."Error : ".mysqli_error(Connection::$db));            
+            $result = Connection::$db->query($query)  or die (mysqli_connect_errno()."Error : ".mysqli_error(Connection::$db));            
             return $result;
         }
         
