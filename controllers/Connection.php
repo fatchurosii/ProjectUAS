@@ -8,7 +8,7 @@
             if($this->db->connect_error){
                 die("Connection failed : " . $this->connect_error);
             }
-                // echo "Connected successfully";                            
+                                    
             
         }   
 

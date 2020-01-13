@@ -133,78 +133,78 @@ session_start();
                     <form action="/search?params" method="post">
                         <div class="d-flex flex-column flex-md-row">
                             <!-- <input class="form-control" name="kategori" type="text" placeholder="Kategori Pekerjaan"> -->
-                            <select class="form-control pr-4"   name="kategori" >
-                                <option value="" disabled selected> Kategori Pekerjaan </option>                                
+                            <select class="form-control pr-4" name="kategori">
+                                <option value="" disabled selected> Kategori Pekerjaan </option>
                                 <?php foreach ($search->showJobList() as $x) { ?>
-                                <option value="<?php echo $x['jobCategory']; ?>"><?php echo $x['jobCategory']; ?></option>
+                                    <option value="<?php echo $x['jobCategory']; ?>"><?php echo $x['jobCategory']; ?></option>
                                 <?php } ?>
-                                
+
                             </select>
 
-                            <select class="form-control pr-4"   name="posisi" >
+                            <select class="form-control pr-4" name="posisi">
                                 <option value="" disabled selected> Posisi Pekerjaan </option>
                                 <?php foreach ($search->showJobList() as $x) { ?>
                                     <option value="<?php echo $x['jobName']; ?>"><?php echo $x['jobName']; ?></option>
                                 <?php } ?>
                             </select>
-                            
-                            <select class="form-control pr-4"   name="lokasi" >
+
+                            <select class="form-control pr-4" name="lokasi">
                                 <option value="" disabled selected> Lokasi Pekerjaan </option>
                                 <?php foreach ($search->showJobList() as $x) { ?>
                                     <option value="<?php echo $x['jobLocation']; ?>"><?php echo $x['jobLocation']; ?></option>
                                 <?php } ?>
                             </select>
-                            
+
                             <button class="btn btn-primary btn-sm " type="submit" type="text"> <i class="fas fa-search fa-2x"></i> </button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-    <!-- </div> -->
+        <!-- </div> -->
 
-    <!-- <div class="container mt-5"> -->
-        
+        <!-- <div class="container mt-5"> -->
+
         <div class="row">
 
             <?php
             if ($_SERVER['REQUEST_URI'] == '/search') {
                 foreach ($search->showJobList() as $x) {
             ?>
-                    
-                        <div class="col-md-4 mt-5 text-center">
 
-                            <div class="card mx-auto" style="width: 18rem;">
-                                <div class="card-header"><?php echo $x['jobName']; ?></div>
-                                <img class="card-img-top img-fluid align-self-center" src="/assets/img/job-sample.png" alt="Card image cap" style="width:auto;height:auto;max-width:100px;">
-                                <div class="card-body">
-                                    <p class="card-title">Nama Perusahaan</p>
-                                    <p class="card-text"> <i class="fas fa-map-marker-alt"></i> <?php echo $x['jobLocation']; ?></p>
-                                    <p class="card-text"><?php echo $x['jobDesc']; ?></p>
+                    <div class="col-md-4 mt-5 text-center">
 
-                                    <form action="/search?action=lihat" method="POST">
+                        <div class="card mx-auto" style="width: 18rem;">
+                            <div class="card-header"><?php echo $x['jobName']; ?></div>
+                            <img class="card-img-top img-fluid align-self-center" src="/assets/img/job-sample.png" alt="Card image cap" style="width:auto;height:auto;max-width:100px;">
+                            <div class="card-body">
+                                <p class="card-title">Nama Perusahaan</p>
+                                <p class="card-text"> <i class="fas fa-map-marker-alt"></i> <?php echo $x['jobLocation']; ?></p>
+                                <p class="card-text"><?php echo $x['jobDesc']; ?></p>
+
+                                <form action="/search?action=lihat" method="POST">
+                                    <input type="hidden" name="idJob" value="<?php echo $x['id']; ?>">
+                                    <input type="hidden" name="idJobseeker" value="<?php echo $_SESSION['id']; ?>">
+                                    <input type="submit" class="btn btn-sm btn-primary" value="Lihat Detail">
+                                </form>
+
+
+                                <?php if ($_SESSION['login'] == TRUE) { ?>
+                                    <form action="/search?action=lamar" method="POST">
                                         <input type="hidden" name="idJob" value="<?php echo $x['id']; ?>">
                                         <input type="hidden" name="idJobseeker" value="<?php echo $_SESSION['id']; ?>">
-                                        <input type="submit" class="btn btn-sm btn-primary" value="Lihat Detail">
+                                        <input type="submit" class="btn btn-sm btn-primary" value="Lamar">
                                     </form>
 
+                                <?php } else {
+                                } ?>
 
-                                    <?php if ($_SESSION['login'] == TRUE) { ?>
-                                        <form action="/search?action=lamar" method="POST">
-                                            <input type="hidden" name="idJob" value="<?php echo $x['id']; ?>">
-                                            <input type="hidden" name="idJobseeker" value="<?php echo $_SESSION['id']; ?>">
-                                            <input type="submit" class="btn btn-sm btn-primary" value="Lamar">
-                                        </form>
-
-                                    <?php } else {
-                                    } ?>
-
-                                </div>
                             </div>
-
-
                         </div>
-                    
+
+
+                    </div>
+
 
                     <!-- IKI RUBAHEN -->
                 <?php
@@ -223,7 +223,24 @@ session_start();
                                     <p class="card-title">Nama Perusahaan</p>
                                     <p class="card-text"> <i class="fas fa-map-marker-alt"></i> <?php echo $y['jobLocation']; ?></p>
                                     <p class="card-text"><?php echo $y['jobDesc']; ?></p>
-                                    <a href="#" class="btn btn-sm btn-primary">Lamar</a>
+
+                                    <form action="/search?action=lihat" method="POST">
+                                        <input type="hidden" name="idJob" value="<?php echo $x['id']; ?>">
+                                        <input type="hidden" name="idJobseeker" value="<?php echo $_SESSION['id']; ?>">
+                                        <input type="submit" class="btn btn-sm btn-primary" value="Lihat Detail">
+                                    </form>
+
+
+                                    <?php if ($_SESSION['login'] == TRUE) { ?>
+                                        <form action="/search?action=lamar" method="POST">
+                                            <input type="hidden" name="idJob" value="<?php echo $x['id']; ?>">
+                                            <input type="hidden" name="idJobseeker" value="<?php echo $_SESSION['id']; ?>">
+                                            <input type="submit" class="btn btn-sm btn-primary" value="Lamar">
+                                        </form>
+
+                                    <?php } else {
+                                    } ?>
+
                                 </div>
                             </div>
                         </div>

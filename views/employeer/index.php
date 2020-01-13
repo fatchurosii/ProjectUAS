@@ -159,16 +159,16 @@ session_start();
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div>
               <i class="fas fa-user-circle fa-fw fa-2x"></i>
-              Hi , 
-                <?php echo $_SESSION['username']; ?>
-              
+              Hi ,
+              <?php echo $_SESSION['username']; ?>
+
             </div>
 
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
             <a class="dropdown-item" href="#">Settings</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+            <a class="dropdown-item" href="/logout">Logout</a>
           </div>
         </li>
       </ul>
@@ -192,10 +192,23 @@ session_start();
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/buatlamaran">
+          <a class="nav-link" href="/employeer/buatlamaran">
             <i class="fas fa-fw fa-file-upload"></i>
-            <span>Buat Lamaran</span></a>
+            <span>Buat Lowongan</span></a>
         </li>
+
+        <form method="post" action="/employeer/init">
+          <input type="hidden" name="id" value="<?php echo $_SESSION['id']; ?>">
+          
+          <li class="nav-item text-center">
+            <button type="submit" class="btn btn-primary" class="nav-link">
+              <i class="fas fa-fw fa-plus"></i>
+              <span>Init Bio</span>
+            </but>
+          </li>
+        
+        </form>
+
 
       </ul>
 
@@ -219,7 +232,7 @@ session_start();
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-comments"></i>
                   </div>
-                  <div class="mr-5">Jumlah Pelamar : <span>20</span> </div>
+                  <div class="mr-5">Jumlah Pelamar : <span><?php echo $search->countdataLamaran($_SESSION['id']);?></span> </div>
 
                 </div>
 
@@ -240,41 +253,23 @@ session_start();
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Nama</th>
-                      <th>Position</th>
-                      <th>Data Pelamar</th>
-                      <th>Umur</th>
-                      <th>Tanggal Apply</th>
-                      <th>Aksi</th>
+                      <th>Nama Pelamar </th>
+                      <th>Alamat</th>                                                                 
+                      <th>No HP</th>
+                      <th>Posisi </th>
                     </tr>
                   </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
-                    </tr>
-                  </tfoot>
+                
                   <tbody>
+                    <?php foreach ($search->dataPelamar($_SESSION['id']) as $x) { ?> 
+                      <!-- OVERLOADING FUNGSI  -->
                     <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
+                      <td><?php echo $x['fullName']; ?></td>
+                      <td><?php echo $x['address'] ;?></td>
+                      <td><?php echo $x['phoneNumber'] ;?></td>
+                      <td><?php echo $x['jobName'] ;?></td>
                     </tr>
-                    <tr>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                    </tr>
+                    <?php }?>
 
                   </tbody>
                 </table>
@@ -306,24 +301,7 @@ session_start();
       <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Apakah anda ingin logout?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Pastikan data anda telah tersimpan semua, dan jika ingin melanjutkan silahkan klik logout dibawah ini !</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="/logout">Logout</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    
 
 
 

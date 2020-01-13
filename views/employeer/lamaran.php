@@ -1,7 +1,5 @@
-<?php 
-
-
-
+<?php
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -34,13 +32,13 @@
 
     <a class="navbar-brand mr-1" href="/">Home</a>
 
-   
+
 
     <!-- Navbar Search -->
-    
+
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
-     
+
       <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-envelope fa-fw"></i>
@@ -70,26 +68,26 @@
 
   <div id="wrapper">
 
-  <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="/employeer">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-file"></i>
-            <span>Data Lowongan</span></a>
-        </li>
+    <ul class="sidebar navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/employeer">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-file"></i>
+          <span>Data Lowongan</span></a>
+      </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="/buatlamaran">
-            <i class="fas fa-fw fa-file-upload"></i>
-            <span>Buat Lamaran</span></a>
-        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/buatlamaran">
+          <i class="fas fa-fw fa-file-upload"></i>
+          <span>Buat Lowongan</span></a>
+      </li>
 
-      </ul>
+    </ul>
 
     <div id="content-wrapper">
 
@@ -100,51 +98,65 @@
           <li class="breadcrumb-item">
             <a href="#">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Overview</li>
+          <li class="breadcrumb-item active">Lowongan Kerja</li>
         </ol>
-  
-        </div>
-
-        <!-- DataTables Example -->
-        <div class="card mb-3">
-          <div class="card-header">
-       
-            Buat Lamaran</div>
-          <div class="card-body">
-          <form>
-  <div class="form-group">
-    <label for="judul">Judul Lamaran</label>
-    <input type="text" class="form-control" id="judul" >
-  </div>
-  <div class="form-group">
-    <label for="posisi">Posisi</label>
-    <input type="text" class="form-control" id="posisi" >
-  </div>
-  <div class="form-group">
-    <label for="salary">Salary</label>
-    <input type="text" class="form-control" id="salary" >
-  </div>
-  <div class="form-group">
-    <label for="job deskripsi">Job Deskripsi</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" ></textarea>
-  </div>
-  <button type="button" class="btn btn-primary">Save</button>
-</form>
-                
-                   
-            </div>
-          </div>
-         
-        </div>
 
       </div>
-      <!-- /.container-fluid -->
 
-      <!-- Sticky Footer -->
-      
+      <!-- DataTables Example -->
+      <div class="card mb-3">
+        <div class="card-header">
+
+          Buat Lowongan Kerja</div>
+        <div class="card-body">
+          <form action="/employeer/postLamaran" method="POST">
+            <div class="form-group">
+              <label for="posisi">Nama Pekerjaan</label>
+              <input type="text" class="form-control" name="posisi" id="posisi">
+            </div>
+            <div class="form-group">
+              <label for="posisi">Kategori</label>
+              <select class="form-control" name="kategori" id="kategori">
+                <option value="it">IT</option>
+                <option value="Human Resource">Human Resource</option>
+                <option value="Office Support">Office Boy</option>
+                <option value="Quality Control">Quality Control</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="job deskripsi">Job Deskripsi</label>
+              <textarea class="form-control" name="deskripsi" id="exampleFormControlTextarea1"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="job location">Lokasi</label>
+              <input type="text" class="form-control" name="lokasi" id="lokasi"></input>
+            </div>
+
+            <div class="form-group">
+              <label for="salary">Salary (Rp.)</label>
+              <input type="number" name="salary" class="form-control" id="salary">
+            </div>
+            
+            <input type="hidden" name="id_employeer" value="<?php echo $_SESSION['id']; ?>">
+            <input type="submit" class="btn btn-primary" value="Post"></input>
+          </form>
+
+
+        </div>
+      </div>
 
     </div>
-    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /.container-fluid -->
+
+  <!-- Sticky Footer -->
+
+
+  </div>
+  <!-- /.content-wrapper -->
 
   </div>
   <!-- /#wrapper -->

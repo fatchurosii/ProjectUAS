@@ -3,7 +3,7 @@
     class AuthControllers {
   
     
-        function register($username,$email,$password,$roles){
+        function register(){
             
             $username = $_POST['username'];
             $email = $_POST['email'];
@@ -28,7 +28,8 @@
                 $query1="INSERT INTO `tbAuth` (`username`,`email`,`password`,`roles`) VALUES ('$username','$email','$hash','$roles')";
 
                 $result = mysqli_query(Connection::$db,$query1) or die(mysqli_connect_errno()."Error : ".mysqli_error(Connection::$db));                    
-                             
+                
+                
                 return $result;
 			}
 			else { 
@@ -43,11 +44,7 @@
 			$query="SELECT * from `tbAuth` WHERE `email`='$email' ";                                                
             $result = Connection::$db->query($query);
             
-            // $user_data = mysqli_fetch_array($result);
-            
-            // $count_row = $result->num_rows;
-
-            $count_row = mysqli_num_rows($result);
+            $count_row = $result->num_rows;
  
 	        if ($count_row == 1) {
                 
@@ -60,7 +57,6 @@
                     $_SESSION['username'] = $row['username'];
                     $_SESSION['email'] = $email;
                     $_SESSION['roles'] = $row['roles'];                    
-
 	                $_SESSION['login'] = TRUE;
 
                     
@@ -95,5 +91,7 @@
             header("location:/");
 
         }
+
+        
         
     }
