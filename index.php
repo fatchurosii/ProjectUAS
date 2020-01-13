@@ -40,7 +40,7 @@ switch ($request) {
     case '/employeer':
         require __DIR__ . '/views/employeer/index.php';
         break;
-    case '/employeer/buatlamaran':
+    case '/employeer/buat-lowongan':
         require __DIR__ . '/views/employeer/lamaran.php';
         break;
     case '/user/lamaran':
@@ -54,9 +54,27 @@ switch ($request) {
         require __DIR__ . '/views/user/job-detail.php';
         break;
         // CONTROLLER LOGIC
+    case '/user/init':
+        $id = $_POST['id'];
+
+        $cond = $jobseek->initBio($id);
+
+        if ($cond) {
+            echo '<script type="text/javascript">';
+            echo 'alert("Berhasil Init !");';
+            echo 'window.location.href = "/user";';
+            echo '</script>';
+        } else {
+            echo '<script type="text/javascript">';
+            echo 'alert("Gagal Init/Sudah Pernah Init!");';
+            echo 'window.location.href = "/user";';
+            echo '</script>';
+        }
+
+        break;
     case '/employeer/init':
         $id = $_POST['id'];
-        
+
         $cond = $emp->initBio($id);
 
         if ($cond) {
@@ -66,7 +84,7 @@ switch ($request) {
             echo '</script>';
         } else {
             echo '<script type="text/javascript">';
-            echo 'alert("Gagal Init !");';
+            echo 'alert("Gagal Init/Sudah Pernah Init !");';
             echo 'window.location.href = "/employeer";';
             echo '</script>';
         }

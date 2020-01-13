@@ -4,7 +4,10 @@ class UserControllers
 {
     public function initBio($id)
     {
-        $query = "INSERT INTO `tbJobseeker` (`tokenID`,`fullName`,`address`,`phoneNumber`) VALUES ('$id','null','null','null') ";
+        $query = "INSERT INTO `tbJobseeker` (`tokenID`,`fullName`,`address`,`phoneNumber`) VALUES ('$id','null','null','0') ";
+        $result = Connection::$db->query($query);
+        
+        return $result;
     }
 
     // Job Logic 

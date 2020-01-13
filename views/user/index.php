@@ -79,10 +79,16 @@ session_start();
                     <div class="d-flex flex-row">
 
                         <div class="p-2 bd-highlight align-self-center">
-                            <?php echo "<span class='welcome'> Selamat datang , </span> <span class='w-username'> " . $_SESSION['username']; echo "</span>" ;?>
+                            <?php echo "<span class='welcome'> Selamat datang , </span> <span class='w-username'> " . $_SESSION['username'];
+                            echo "</span>"; ?>
                         </div>
                         <div class="p-2 bd-highlight ml-auto">
-                            Moch Nuril <img src="assets/img/pp.jpeg" class="card-img-top rounded-circle" style="width: 50px;height:50px;">
+                            <form method="post" action="/user/init">
+                                <input type="hidden" name="id" value="<?php echo $_SESSION['id']; ?>">
+                                <button type="submit" class="btn btn-primary" class="nav-link">
+                                    <i class="fas fa-fw fa-plus"></i>
+                                    <span>Init Bio</span>
+                            </form>
                         </div>
 
                     </div>
@@ -91,7 +97,7 @@ session_start();
 
 
                         <div class="col-md-4 stretch-card grid-margin">
-                                                        
+
                             <div class="card bg-gradient-danger card-img-holder text-white">
                                 <div class="card-body">
                                     <img src="assets/img/circle.svg" class="card-img-absolute" alt="circle-image" />

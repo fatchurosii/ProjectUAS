@@ -37,39 +37,31 @@ session_start();
     <!-- Navbar Search -->
 
     <!-- Navbar -->
-    <ul class="navbar-nav ml-auto ml-md-0">
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown no-arrow ">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div>
+              <i class="fas fa-user-circle fa-fw fa-2x"></i>
+              Hi ,
+              <?php echo $_SESSION['username']; ?>
 
-      <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-envelope fa-fw"></i>
-          <span class="badge badge-danger">7</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user-circle fa-fw"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">Settings</a>
-          <a class="dropdown-item" href="#">Activity Log</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-        </div>
-      </li>
-    </ul>
+            </div>
+
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="#">Settings</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/logout">Logout</a>
+          </div>
+        </li>
+      </ul>
 
   </nav>
 
   <div id="wrapper">
 
     <ul class="sidebar navbar-nav">
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="/employeer">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
@@ -81,8 +73,8 @@ session_start();
           <span>Data Lowongan</span></a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="/buatlamaran">
+      <li class="nav-item active">
+        <a class="nav-link" href="/employeer/buat-lowongan">
           <i class="fas fa-fw fa-file-upload"></i>
           <span>Buat Lowongan</span></a>
       </li>

@@ -25,7 +25,7 @@
 
 			if ($count_row == 0){
 
-                $query1="INSERT INTO `tbAuth` (`username`,`email`,`password`,`roles`) VALUES ('$username','$email','$hash','$roles')";
+                $query="INSERT INTO `tbAuth` (`username`,`email`,`password`,`roles`) VALUES ('$username','$email','$hash','$roles')";
 
                 $result = Connection::$db->query($query) or die(mysqli_connect_errno()."Error : ".mysqli_error(Connection::$db));                    
                              

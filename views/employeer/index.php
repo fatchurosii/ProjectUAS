@@ -192,21 +192,20 @@ session_start();
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/employeer/buatlamaran">
+          <a class="nav-link" href="/employeer/buat-lowongan">
             <i class="fas fa-fw fa-file-upload"></i>
             <span>Buat Lowongan</span></a>
         </li>
 
         <form method="post" action="/employeer/init">
           <input type="hidden" name="id" value="<?php echo $_SESSION['id']; ?>">
-          
+
           <li class="nav-item text-center">
             <button type="submit" class="btn btn-primary" class="nav-link">
               <i class="fas fa-fw fa-plus"></i>
               <span>Init Bio</span>
-            </but>
           </li>
-        
+
         </form>
 
 
@@ -232,7 +231,7 @@ session_start();
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-comments"></i>
                   </div>
-                  <div class="mr-5">Jumlah Pelamar : <span><?php echo $search->countdataLamaran($_SESSION['id']);?></span> </div>
+                  <div class="mr-5">Jumlah Pelamar : <span><?php echo $search->countdataLamaran($_SESSION['id']); ?></span> </div>
 
                 </div>
 
@@ -254,22 +253,22 @@ session_start();
                   <thead>
                     <tr>
                       <th>Nama Pelamar </th>
-                      <th>Alamat</th>                                                                 
+                      <th>Alamat</th>
                       <th>No HP</th>
                       <th>Posisi </th>
                     </tr>
                   </thead>
-                
+
                   <tbody>
-                    <?php foreach ($search->dataPelamar($_SESSION['id']) as $x) { ?> 
+                    <?php foreach ($search->dataPelamar($_SESSION['id']) as $x) { ?>
                       <!-- OVERLOADING FUNGSI  -->
-                    <tr>
-                      <td><?php echo $x['fullName']; ?></td>
-                      <td><?php echo $x['address'] ;?></td>
-                      <td><?php echo $x['phoneNumber'] ;?></td>
-                      <td><?php echo $x['jobName'] ;?></td>
-                    </tr>
-                    <?php }?>
+                      <tr>
+                        <td><?php echo $x['fullName']; ?></td>
+                        <td><?php echo $x['address']; ?></td>
+                        <td><?php echo $x['phoneNumber']; ?></td>
+                        <td><?php echo $x['jobName']; ?></td>
+                      </tr>
+                    <?php } ?>
 
                   </tbody>
                 </table>
@@ -301,7 +300,7 @@ session_start();
       <i class="fas fa-angle-up"></i>
     </a>
 
-    
+
 
 
 

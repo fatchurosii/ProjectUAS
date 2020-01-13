@@ -16,4 +16,16 @@ class Jobseeker extends UserControllers
             return $result;
         }
     }
+
+    //OVERRIDING
+    function initBio($id)
+    {
+        $cond = parent::initBio($id); //Sama seperti super di java        
+
+        if($cond){
+            return True;
+        }else{
+            return False;
+        }
+    }
 }
