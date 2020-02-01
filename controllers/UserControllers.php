@@ -28,6 +28,12 @@ class UserControllers
         }
     }
 
+    public function showKategori(){
+        $query = "SELECT * from `tbJobList` ";
+        $result = Connection::$db->query($query);
+        
+    }
+
     public function searchJobList()
     {
         $kategori = $_POST['kategori'];
